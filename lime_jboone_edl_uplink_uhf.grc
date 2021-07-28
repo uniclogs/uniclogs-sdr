@@ -1,0 +1,572 @@
+options:
+  parameters:
+    author: jboone
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: jboone_edl_rx
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: OreSat EDL Receive
+    window_size: ''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
+blocks:
+- name: demod_input_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: symbol_rate * samples_per_symbol
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [376, 76.0]
+    rotation: 0
+    state: enabled
+- name: f_offset
+  id: variable_qtgui_range
+  parameters:
+    comment: ''
+    gui_hint: ''
+    label: ''
+    min_len: '200'
+    orient: Qt.Horizontal
+    rangeType: float
+    start: '-2000'
+    step: '100'
+    stop: '2000'
+    value: '700'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [520, 340.0]
+    rotation: 0
+    state: true
+- name: rf_samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: 5e6
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [184, 84.0]
+    rotation: 0
+    state: enabled
+- name: samp_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '500000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [184, 12]
+    rotation: 0
+    state: enabled
+- name: samples_per_symbol
+  id: variable
+  parameters:
+    comment: ''
+    value: '5'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [376, 12.0]
+    rotation: 0
+    state: enabled
+- name: symbol_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '96000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [272, 12.0]
+    rotation: 0
+    state: enabled
+- name: blocks_char_to_float_0
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1528, 228.0]
+    rotation: 0
+    state: enabled
+- name: blocks_message_debug_0
+  id: blocks_message_debug
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1520, 376.0]
+    rotation: 180
+    state: enabled
+- name: blocks_rotator_cc_0
+  id: blocks_rotator_cc
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    phase_inc: 2 * math.pi * -f_offset / samp_rate
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [504, 228.0]
+    rotation: 0
+    state: true
+- name: blocks_socket_pdu_0
+  id: blocks_socket_pdu
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    host: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    mtu: '10000'
+    port: '52001'
+    tcp_no_delay: 'False'
+    type: TCP_CLIENT
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1712, 292.0]
+    rotation: 0
+    state: enabled
+- name: digital_descrambler_bb_0
+  id: digital_descrambler_bb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    len: '16'
+    mask: '0x0021'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    seed: '0x0000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1256, 212.0]
+    rotation: 0
+    state: enabled
+- name: digital_gfsk_demod_0
+  id: digital_gfsk_demod
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    freq_error: '0.0'
+    gain_mu: '0.175'
+    log: 'False'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    mu: '0.5'
+    omega_relative_limit: '0.0002'
+    samples_per_symbol: samples_per_symbol
+    sensitivity: '1.0'
+    verbose: 'False'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [920, 188.0]
+    rotation: 0
+    state: true
+- name: fosphor_qt_sink_c_0
+  id: fosphor_qt_sink_c
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    freq_center: '0'
+    freq_span: demod_input_rate
+    gui_hint: ''
+    wintype: window.WIN_BLACKMAN_hARRIS
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [920, 316.0]
+    rotation: 0
+    state: disabled
+- name: import_0
+  id: import
+  parameters:
+    alias: ''
+    comment: ''
+    imports: import math
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 132.0]
+    rotation: 0
+    state: true
+- name: limesdr_source_0
+  id: limesdr_source
+  parameters:
+    affinity: ''
+    alias: ''
+    allow_tcxo_dac: '0'
+    analog_bandw_ch0: 1.5e6
+    analog_bandw_ch1: 1.5e6
+    calibr_bandw_ch0: 2.5e6
+    calibr_bandw_ch1: 2.5e6
+    channel_mode: '0'
+    comment: ''
+    dacVal: '180'
+    digital_bandw_ch0: samp_rate
+    digital_bandw_ch1: samp_rate
+    filename: ''
+    gain_dB_ch0: '30'
+    gain_dB_ch1: '1'
+    lna_path_ch0: '255'
+    lna_path_ch1: '2'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    nco_freq_ch0: '0'
+    nco_freq_ch1: '0'
+    oversample: '0'
+    rf_freq: 436.5e6
+    samp_rate: rf_samp_rate
+    serial: ''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [40, 212.0]
+    rotation: 0
+    state: true
+- name: qtgui_freq_sink_x_0
+  id: qtgui_freq_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    average: '1.0'
+    axislabels: 'True'
+    bw: samp_rate
+    color1: '"blue"'
+    color10: '"dark blue"'
+    color2: '"red"'
+    color3: '"green"'
+    color4: '"black"'
+    color5: '"cyan"'
+    color6: '"magenta"'
+    color7: '"yellow"'
+    color8: '"dark red"'
+    color9: '"dark green"'
+    comment: ''
+    ctrlpanel: 'False'
+    fc: '0'
+    fftsize: '1024'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label: Relative Gain
+    label1: ''
+    label10: ''''''
+    label2: ''''''
+    label3: ''''''
+    label4: ''''''
+    label5: ''''''
+    label6: ''''''
+    label7: ''''''
+    label8: ''''''
+    label9: ''''''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '""'
+    nconnections: '1'
+    showports: 'False'
+    tr_chan: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_tag: '""'
+    type: complex
+    units: dB
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    wintype: firdes.WIN_BLACKMAN_hARRIS
+    ymax: '10'
+    ymin: '-140'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [824, 448.0]
+    rotation: 0
+    state: true
+- name: qtgui_time_sink_x_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'True'
+    grid: 'False'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '""'
+    nconnections: '1'
+    size: '1024'
+    srate: symbol_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1.2'
+    ymin: '-0.2'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1664, 212.0]
+    rotation: 0
+    state: enabled
+- name: rational_resampler_xxx_0
+  id: rational_resampler_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    decim: samp_rate
+    fbw: '0.4'
+    interp: demod_input_rate
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    taps: ''
+    type: ccc
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [712, 204.0]
+    rotation: 0
+    state: enabled
+- name: rational_resampler_xxx_1
+  id: rational_resampler_xxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    decim: int(rf_samp_rate/samp_rate)
+    fbw: '0'
+    interp: '1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    taps: ''
+    type: ccc
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [224, 340.0]
+    rotation: 0
+    state: true
+- name: satellites_hdlc_deframer_0
+  id: satellites_hdlc_deframer
+  parameters:
+    affinity: ''
+    alias: ''
+    check_fcs: 'True'
+    comment: ''
+    max_length: '128'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1424, 308.0]
+    rotation: 0
+    state: true
+- name: satellites_nrzi_decode_0
+  id: satellites_nrzi_decode
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1128, 232.0]
+    rotation: 0
+    state: true
+- name: satellites_rms_agc_0
+  id: satellites_rms_agc
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha: 1e-2
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    reference: '1.0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [376, 220.0]
+    rotation: 0
+    state: true
+
+connections:
+- [blocks_char_to_float_0, '0', qtgui_time_sink_x_0, '0']
+- [blocks_rotator_cc_0, '0', rational_resampler_xxx_0, '0']
+- [digital_descrambler_bb_0, '0', blocks_char_to_float_0, '0']
+- [digital_descrambler_bb_0, '0', satellites_hdlc_deframer_0, '0']
+- [digital_gfsk_demod_0, '0', satellites_nrzi_decode_0, '0']
+- [limesdr_source_0, '0', rational_resampler_xxx_1, '0']
+- [rational_resampler_xxx_0, '0', digital_gfsk_demod_0, '0']
+- [rational_resampler_xxx_0, '0', fosphor_qt_sink_c_0, '0']
+- [rational_resampler_xxx_0, '0', qtgui_freq_sink_x_0, '0']
+- [rational_resampler_xxx_1, '0', satellites_rms_agc_0, '0']
+- [satellites_hdlc_deframer_0, out, blocks_message_debug_0, print_pdu]
+- [satellites_hdlc_deframer_0, out, blocks_socket_pdu_0, pdus]
+- [satellites_nrzi_decode_0, '0', digital_descrambler_bb_0, '0']
+- [satellites_rms_agc_0, '0', blocks_rotator_cc_0, '0']
+
+metadata:
+  file_format: 1
