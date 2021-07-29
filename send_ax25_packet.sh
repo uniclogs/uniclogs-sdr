@@ -13,4 +13,4 @@
 #  Control:        0x03
 #  Payload:        Hi
 #
-$ echo "a682a84040406096946ea6aa406103004869" | xxd -r -p | nc localhost 52002
+echo "a682a84040406096946ea6aa406103004869" | xxd -r -p | nc localhost 52002
