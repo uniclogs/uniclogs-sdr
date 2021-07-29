@@ -1,6 +1,6 @@
-# uniclogs-gr-plugins
+# uniclogs-sdr
 
-[![License](https://img.shields.io/github/license/oresat/gr-uniclogs)](./LICENSE)
-[![Issues](https://img.shields.io/github/issues/oresat/gr-uniclogs)](https://github.com/oresat/gr-uniclogs/issues)
+[![License](https://img.shields.io/github/license/oresat/uniclogs-sdr)](./LICENSE)
+[![Issues](https://img.shields.io/github/issues/oresat/uniclogs-sdr)](https://github.com/oresat/uniclogs-sdr/issues)
 
-GNURadio plugin for uniclogs
+GNURadio-based SDR software and flowgraphs for UniClOGS
