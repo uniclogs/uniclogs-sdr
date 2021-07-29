@@ -352,7 +352,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     samples_per_symbol: samples_per_symbol
-    sensitivity: '1.0'
+    sensitivity: '0.33'
     verbose: 'False'
   states:
     bus_sink: false
