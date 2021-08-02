@@ -3,14 +3,18 @@ options:
     author: glennl
     category: '[GRC Hier Blocks]'
     cmake_opt: ''
-    comment: ''
+    comment: '~
+
+      glennl
+
+      jboone'
     copyright: ''
     description: ''
     gen_cmake: 'On'
     gen_linking: dynamic
     generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: g3ruh_transmitter
+    id: g3ruh_tx_rx
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -21,7 +25,7 @@ options:
     run_options: prompt
     sizing_mode: fixed
     thread_safe_setters: ''
-    title: G3RUH Transmitter
+    title: G3RUH Transmitter/Receiver
     window_size: ''
   states:
     bus_sink: false
@@ -32,6 +36,18 @@ options:
     state: enabled
 
 blocks:
+- name: bit_rate
+  id: variable
+  parameters:
+    comment: ''
+    value: '9600'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [304, 12.0]
+    rotation: 0
+    state: enabled
 - name: demod_input_rate
   id: variable
   parameters:
@@ -41,7 +57,31 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [376, 76.0]
+    coordinate: [440, 4.0]
+    rotation: 0
+    state: enabled
+- name: demod_sensitivity
+  id: variable
+  parameters:
+    comment: ''
+    value: samples_per_symbol/(math.pi*modulation_index)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [584, 228.0]
+    rotation: 0
+    state: enabled
+- name: deviation
+  id: variable
+  parameters:
+    comment: Set for MSK
+    value: bit_rate/4
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [584, 4.0]
     rotation: 0
     state: enabled
 - name: f_offset
@@ -62,7 +102,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [520, 340.0]
+    coordinate: [528, 508.0]
     rotation: 0
     state: enabled
 - name: mod_input_rate
@@ -74,7 +114,43 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [512, 76.0]
+    coordinate: [440, 68.0]
+    rotation: 0
+    state: enabled
+- name: mod_sensitivity
+  id: variable
+  parameters:
+    comment: ''
+    value: (math.pi*modulation_index)/samples_per_symbol
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [584, 164.0]
+    rotation: 0
+    state: enabled
+- name: modulation_index
+  id: variable
+  parameters:
+    comment: ''
+    value: deviation/(bit_rate/2)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [584, 100.0]
+    rotation: 0
+    state: enabled
+- name: rf_frequency
+  id: variable
+  parameters:
+    comment: ''
+    value: 436.5e6
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [184, 140.0]
     rotation: 0
     state: enabled
 - name: rf_samp_rate
@@ -110,19 +186,19 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [376, 12.0]
+    coordinate: [304, 172.0]
     rotation: 0
     state: enabled
 - name: symbol_rate
   id: variable
   parameters:
-    comment: ''
-    value: '9600'
+    comment: Set for BFSK
+    value: bit_rate
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [272, 12.0]
+    coordinate: [304, 76.0]
     rotation: 0
     state: enabled
 - name: blocks_char_to_float_0
@@ -139,7 +215,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1760, 212.0]
+    coordinate: [1776, 380.0]
     rotation: 0
     state: enabled
 - name: blocks_message_debug_0
@@ -152,7 +228,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1784, 376.0]
+    coordinate: [1792, 568.0]
     rotation: 180
     state: enabled
 - name: blocks_message_debug_0_0_0_0
@@ -167,7 +243,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 1192.0]
+    coordinate: [184, 1240.0]
     rotation: 180
     state: disabled
 - name: blocks_message_debug_0_0_0_0_0
@@ -182,7 +258,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 1056.0]
+    coordinate: [184, 1104.0]
     rotation: 180
     state: enabled
 - name: blocks_pdu_to_tagged_stream_0
@@ -199,7 +275,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [440, 828.0]
+    coordinate: [440, 876.0]
     rotation: 0
     state: true
 - name: blocks_rotator_cc_0
@@ -207,7 +283,13 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    comment: ''
+    comment: 'Frequency translation providing
+
+      "offset tuning" to move the DC bias
+
+      artifact found in zero-IF receivers.
+
+      - Jared Boone'
     maxoutbuf: '0'
     minoutbuf: '0'
     phase_inc: 2 * math.pi * -f_offset / samp_rate
@@ -215,7 +297,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [512, 228.0]
+    coordinate: [528, 396.0]
     rotation: 0
     state: enabled
 - name: blocks_socket_pdu_0
@@ -235,7 +317,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1976, 292.0]
+    coordinate: [1984, 492.0]
     rotation: 0
     state: enabled
 - name: blocks_socket_pdu_0_0
@@ -255,7 +337,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [48, 804.0]
+    coordinate: [48, 852.0]
     rotation: 0
     state: enabled
 - name: blocks_throttle_0
@@ -278,7 +360,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1120, 828.0]
+    coordinate: [1120, 876.0]
     rotation: 0
     state: bypassed
 - name: blocks_unpacked_to_packed_xx_0
@@ -297,7 +379,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [920, 820.0]
+    coordinate: [920, 868.0]
     rotation: 0
     state: enabled
 - name: digital_descrambler_bb_0
@@ -305,7 +387,7 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    comment: ''
+    comment: https://destevez.net/2016/05/scramblers-and-their-implementation-in-gnuradio/
     len: '16'
     mask: '0x0021'
     maxoutbuf: '0'
@@ -315,7 +397,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1520, 212.0]
+    coordinate: [1568, 380.0]
     rotation: 0
     state: enabled
 - name: digital_gfsk_demod_0
@@ -332,13 +414,13 @@ blocks:
     mu: '0.5'
     omega_relative_limit: '0.0002'
     samples_per_symbol: samples_per_symbol
-    sensitivity: '1.0'
+    sensitivity: demod_sensitivity
     verbose: 'False'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1120, 188.0]
+    coordinate: [1136, 356.0]
     rotation: 0
     state: enabled
 - name: digital_gfsk_mod_0
@@ -358,7 +440,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1304, 812.0]
+    coordinate: [1304, 860.0]
     rotation: 0
     state: true
 - name: digital_scrambler_bb_0
@@ -366,7 +448,7 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    comment: ''
+    comment: https://destevez.net/2016/05/scramblers-and-their-implementation-in-gnuradio/
     len: '16'
     mask: '0x21'
     maxoutbuf: '0'
@@ -376,7 +458,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [656, 812.0]
+    coordinate: [656, 860.0]
     rotation: 0
     state: true
 - name: fosphor_qt_sink_c_0
@@ -393,7 +475,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [888, 380.0]
+    coordinate: [928, 516.0]
     rotation: 0
     state: disabled
 - name: import_0
@@ -406,7 +488,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [376, 140.0]
+    coordinate: [16, 164.0]
     rotation: 0
     state: true
 - name: limesdr_sink_0
@@ -433,14 +515,14 @@ blocks:
     oversample: '0'
     pa_path_ch0: '255'
     pa_path_ch1: '255'
-    rf_freq: 436.5e6
+    rf_freq: rf_frequency
     samp_rate: rf_samp_rate
     serial: ''
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1952, 812.0]
+    coordinate: [1952, 860.0]
     rotation: 0
     state: enabled
 - name: limesdr_source_0
@@ -468,14 +550,14 @@ blocks:
     nco_freq_ch0: '0'
     nco_freq_ch1: '0'
     oversample: '0'
-    rf_freq: 436.5e6
+    rf_freq: rf_frequency
     samp_rate: rf_samp_rate
     serial: ''
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [16, 212.0]
+    coordinate: [32, 380.0]
     rotation: 0
     state: enabled
 - name: qtgui_const_sink_x_0
@@ -567,7 +649,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1424, 1108.0]
+    coordinate: [1424, 1156.0]
     rotation: 0
     state: true
 - name: qtgui_freq_sink_x_0
@@ -647,7 +729,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [800, 456.0]
+    coordinate: [864, 584.0]
     rotation: 0
     state: disabled
 - name: qtgui_freq_sink_x_1_0
@@ -727,7 +809,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1952, 912.0]
+    coordinate: [1952, 960.0]
     rotation: 0
     state: enabled
 - name: qtgui_freq_sink_x_1_0_0
@@ -807,7 +889,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1504, 984.0]
+    coordinate: [1504, 1032.0]
     rotation: 0
     state: enabled
 - name: qtgui_time_sink_x_0
@@ -904,7 +986,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1920, 188.0]
+    coordinate: [1936, 356.0]
     rotation: 0
     state: enabled
 - name: rational_resampler_xxx_0
@@ -924,7 +1006,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [736, 204.0]
+    coordinate: [752, 372.0]
     rotation: 0
     state: enabled
 - name: rational_resampler_xxx_1
@@ -944,7 +1026,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [208, 348.0]
+    coordinate: [216, 516.0]
     rotation: 0
     state: enabled
 - name: rational_resampler_xxx_2_0
@@ -964,7 +1046,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1744, 804.0]
+    coordinate: [1744, 852.0]
     rotation: 0
     state: true
 - name: rational_resampler_xxx_2_0_0
@@ -984,7 +1066,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1544, 804.0]
+    coordinate: [1544, 852.0]
     rotation: 0
     state: true
 - name: satellites_check_address_0
@@ -1001,7 +1083,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [160, 984.0]
+    coordinate: [160, 1032.0]
     rotation: 0
     state: enabled
 - name: satellites_hdlc_deframer_0
@@ -1018,7 +1100,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1688, 308.0]
+    coordinate: [1696, 508.0]
     rotation: 0
     state: enabled
 - name: satellites_hdlc_framer_0
@@ -1035,7 +1117,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [256, 820.0]
+    coordinate: [256, 868.0]
     rotation: 0
     state: true
 - name: satellites_nrzi_decode_0
@@ -1050,7 +1132,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1360, 232.0]
+    coordinate: [1392, 400.0]
     rotation: 0
     state: enabled
 - name: satellites_nrzi_encode_0
@@ -1065,7 +1147,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [776, 832.0]
+    coordinate: [776, 880.0]
     rotation: 0
     state: true
 - name: satellites_rms_agc_0
@@ -1082,7 +1164,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [376, 220.0]
+    coordinate: [376, 388.0]
     rotation: 0
     state: enabled
 
