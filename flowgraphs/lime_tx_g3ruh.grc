@@ -69,13 +69,15 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [584, 228.0]
+    coordinate: [584, 236.0]
     rotation: 0
     state: enabled
 - name: deviation
   id: variable
   parameters:
-    comment: Set for MSK
+    comment: 'Set for MSK,
+
+      a subset of BFSK'
     value: bit_rate/4
   states:
     bus_sink: false
@@ -102,7 +104,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [528, 508.0]
+    coordinate: [560, 468.0]
     rotation: 0
     state: enabled
 - name: mod_input_rate
@@ -126,7 +128,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [584, 164.0]
+    coordinate: [584, 172.0]
     rotation: 0
     state: enabled
 - name: modulation_index
@@ -138,7 +140,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [584, 100.0]
+    coordinate: [584, 108.0]
     rotation: 0
     state: enabled
 - name: rf_frequency
@@ -215,9 +217,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1776, 380.0]
+    coordinate: [1776, 340.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: blocks_message_debug_0
   id: blocks_message_debug
   parameters:
@@ -228,7 +230,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1792, 568.0]
+    coordinate: [1792, 528.0]
     rotation: 180
     state: enabled
 - name: blocks_message_debug_0_0_0_0
@@ -243,7 +245,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 1240.0]
+    coordinate: [168, 1040.0]
     rotation: 180
     state: disabled
 - name: blocks_message_debug_0_0_0_0_0
@@ -258,7 +260,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 1104.0]
+    coordinate: [168, 912.0]
     rotation: 180
     state: enabled
 - name: blocks_pdu_to_tagged_stream_0
@@ -275,9 +277,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [440, 876.0]
+    coordinate: [424, 684.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: blocks_rotator_cc_0
   id: blocks_rotator_cc
   parameters:
@@ -297,7 +299,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [528, 396.0]
+    coordinate: [560, 356.0]
     rotation: 0
     state: enabled
 - name: blocks_socket_pdu_0
@@ -317,7 +319,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1984, 492.0]
+    coordinate: [1984, 452.0]
     rotation: 0
     state: enabled
 - name: blocks_socket_pdu_0_0
@@ -337,7 +339,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [48, 852.0]
+    coordinate: [24, 660.0]
     rotation: 0
     state: enabled
 - name: blocks_throttle_0
@@ -360,7 +362,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1120, 876.0]
+    coordinate: [1096, 684.0]
     rotation: 0
     state: bypassed
 - name: blocks_unpacked_to_packed_xx_0
@@ -379,7 +381,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [920, 868.0]
+    coordinate: [904, 676.0]
     rotation: 0
     state: enabled
 - name: digital_descrambler_bb_0
@@ -397,7 +399,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1568, 380.0]
+    coordinate: [1568, 340.0]
     rotation: 0
     state: enabled
 - name: digital_gfsk_demod_0
@@ -420,7 +422,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1136, 356.0]
+    coordinate: [1168, 316.0]
     rotation: 0
     state: enabled
 - name: digital_gfsk_mod_0
@@ -440,9 +442,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1304, 860.0]
+    coordinate: [1288, 668.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: digital_scrambler_bb_0
   id: digital_scrambler_bb
   parameters:
@@ -458,9 +460,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [656, 860.0]
+    coordinate: [632, 668.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: fosphor_qt_sink_c_0
   id: fosphor_qt_sink_c
   parameters:
@@ -475,7 +477,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [928, 516.0]
+    coordinate: [992, 476.0]
     rotation: 0
     state: disabled
 - name: import_0
@@ -522,7 +524,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1952, 860.0]
+    coordinate: [1928, 668.0]
     rotation: 0
     state: enabled
 - name: limesdr_source_0
@@ -557,7 +559,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [32, 380.0]
+    coordinate: [16, 340.0]
     rotation: 0
     state: enabled
 - name: qtgui_const_sink_x_0
@@ -611,7 +613,7 @@ blocks:
     marker7: '0'
     marker8: '0'
     marker9: '0'
-    name: '"Transmit at modulator"'
+    name: '"Transmit at Modulator"'
     nconnections: '1'
     size: '1024'
     style1: '0'
@@ -649,9 +651,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1424, 1156.0]
+    coordinate: [1400, 956.0]
     rotation: 0
-    state: true
+    state: disabled
 - name: qtgui_freq_sink_x_0
   id: qtgui_freq_sink_x
   parameters:
@@ -670,7 +672,7 @@ blocks:
     autoscale: 'False'
     average: '1.0'
     axislabels: 'True'
-    bw: samp_rate
+    bw: samp_rate*10
     color1: '"blue"'
     color10: '"dark blue"'
     color2: '"red"'
@@ -702,7 +704,7 @@ blocks:
     legend: 'True'
     maxoutbuf: '0'
     minoutbuf: '0'
-    name: '""'
+    name: '"Receive at Demodulator"'
     nconnections: '1'
     showports: 'False'
     tr_chan: '0'
@@ -729,9 +731,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [864, 584.0]
+    coordinate: [960, 544.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: qtgui_freq_sink_x_1_0
   id: qtgui_freq_sink_x
   parameters:
@@ -809,7 +811,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1952, 960.0]
+    coordinate: [1928, 768.0]
     rotation: 0
     state: enabled
 - name: qtgui_freq_sink_x_1_0_0
@@ -862,7 +864,7 @@ blocks:
     legend: 'True'
     maxoutbuf: '0'
     minoutbuf: '0'
-    name: '"Transmit at modulator"'
+    name: '"Transmit at Modulator"'
     nconnections: '1'
     showports: 'False'
     tr_chan: '0'
@@ -889,7 +891,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1504, 1032.0]
+    coordinate: [1480, 832.0]
     rotation: 0
     state: enabled
 - name: qtgui_time_sink_x_0
@@ -986,9 +988,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1936, 356.0]
+    coordinate: [1936, 316.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: rational_resampler_xxx_0
   id: rational_resampler_xxx
   parameters:
@@ -1006,7 +1008,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [752, 372.0]
+    coordinate: [792, 332.0]
     rotation: 0
     state: enabled
 - name: rational_resampler_xxx_1
@@ -1026,7 +1028,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [216, 516.0]
+    coordinate: [224, 332.0]
     rotation: 0
     state: enabled
 - name: rational_resampler_xxx_2_0
@@ -1046,9 +1048,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1744, 852.0]
+    coordinate: [1720, 660.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: rational_resampler_xxx_2_0_0
   id: rational_resampler_xxx
   parameters:
@@ -1066,9 +1068,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1544, 852.0]
+    coordinate: [1528, 660.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: satellites_check_address_0
   id: satellites_check_address
   parameters:
@@ -1083,7 +1085,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [160, 1032.0]
+    coordinate: [136, 832.0]
     rotation: 0
     state: enabled
 - name: satellites_hdlc_deframer_0
@@ -1100,7 +1102,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1696, 508.0]
+    coordinate: [1696, 468.0]
     rotation: 0
     state: enabled
 - name: satellites_hdlc_framer_0
@@ -1117,9 +1119,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [256, 868.0]
+    coordinate: [232, 676.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: satellites_nrzi_decode_0
   id: satellites_nrzi_decode
   parameters:
@@ -1132,7 +1134,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1392, 400.0]
+    coordinate: [1416, 360.0]
     rotation: 0
     state: enabled
 - name: satellites_nrzi_encode_0
@@ -1147,9 +1149,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [776, 880.0]
+    coordinate: [760, 688.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: satellites_rms_agc_0
   id: satellites_rms_agc
   parameters:
@@ -1164,7 +1166,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [376, 388.0]
+    coordinate: [416, 348.0]
     rotation: 0
     state: enabled
 
