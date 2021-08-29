@@ -45,7 +45,11 @@ GNURadio-based SDR software and flowgraphs for UniClOGS
    * You should see the RF frequency sink (spectrograph).
    * If there's a beaconing C3 around, you should see data pop up on the left hand column! You might have to adjust the gain.
 
-   
+# YAMCS
+
+* In uniclogs-yamcs, you'll have to build and run yams (see the README.md file)
+* Set up the Socket PDU to be: UDP Client, Host 127.0.0.1, Port 10015, MTU 10000.
+
    
    
 
