@@ -45,11 +45,13 @@ GNURadio-based SDR software and flowgraphs for UniClOGS
    * You should see the RF frequency sink (spectrograph).
    * If there's a beaconing C3 around, you should see data pop up on the left hand column! You might have to adjust the gain.
 
-# YAMCS
+# Listening with YAMCS
 
-* In uniclogs-yamcs, you'll have to build and run yams (see the README.md file)
+* In the `uniclogs-yamcs` repo, you'll have to build and run yams (see the README.md file)
 * Set up the Socket PDU to be: UDP Client, Host 127.0.0.1, Port 10015, MTU 10000.
 
-   
-   
+# Transmitting
 
+* You have to netcat to port 52002 the command you want to send. For example:
+   * Turn on the battery: echo "C4F53800000F00E5111801" | xxd -r -p | nc -u 127.0.0.1 52002
+   * Turn off the battery: echo "C4F53800000F00E5111800" | xxd -r -p | nc -u 127.0.0.1 52002 
