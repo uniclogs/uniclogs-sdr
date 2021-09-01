@@ -159,7 +159,7 @@ blocks:
     rangeType: float
     start: '0'
     step: '1'
-    stop: '73'
+    stop: '70'
     value: '20'
     widget: counter_slider
   states:
@@ -178,7 +178,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [480, 1324.0]
+    coordinate: [480, 1268.0]
     rotation: 0
     state: enabled
 - name: mod_sensitivity
@@ -190,7 +190,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [480, 1260.0]
+    coordinate: [480, 1204.0]
     rotation: 0
     state: enabled
 - name: modulation_index
@@ -218,24 +218,15 @@ blocks:
     rotation: 0
     state: enabled
 - name: pa_gain
-  id: variable_qtgui_range
+  id: variable
   parameters:
     comment: ''
-    gui_hint: ''
-    label: ''
-    min_len: '200'
-    orient: Qt.Horizontal
-    rangeType: float
-    start: '0'
-    step: '1'
-    stop: '73'
-    value: '20'
-    widget: counter_slider
+    value: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [32, 1412.0]
+    coordinate: [16, 884.0]
     rotation: 0
     state: enabled
 - name: rf_samp_rate
@@ -343,7 +334,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [160, 1260.0]
+    coordinate: [160, 1204.0]
     rotation: 0
     state: enabled
 - name: tx_deviation
@@ -357,7 +348,19 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [336, 1260.0]
+    coordinate: [336, 1204.0]
+    rotation: 0
+    state: enabled
+- name: tx_lna_gain
+  id: variable
+  parameters:
+    comment: ''
+    value: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [16, 956.0]
     rotation: 0
     state: enabled
 - name: tx_modulation_index
@@ -369,7 +372,28 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [336, 1356.0]
+    coordinate: [336, 1308.0]
+    rotation: 0
+    state: enabled
+- name: tx_pa_gain
+  id: variable_qtgui_range
+  parameters:
+    comment: ''
+    gui_hint: ''
+    label: ''
+    min_len: '200'
+    orient: Qt.Horizontal
+    rangeType: float
+    start: '0'
+    step: '1'
+    stop: '60'
+    value: '20'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [32, 1332.0]
     rotation: 0
     state: enabled
 - name: tx_rf_frequency
@@ -381,7 +405,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [32, 1340.0]
+    coordinate: [32, 1268.0]
     rotation: 0
     state: enabled
 - name: tx_samp_rate
@@ -393,7 +417,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [32, 1260.0]
+    coordinate: [32, 1204.0]
     rotation: 0
     state: enabled
 - name: tx_samples_per_symbol
@@ -405,7 +429,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [160, 1404.0]
+    coordinate: [160, 1356.0]
     rotation: 0
     state: enabled
 - name: tx_symbol_rate
@@ -417,7 +441,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [160, 1324.0]
+    coordinate: [160, 1268.0]
     rotation: 0
     state: enabled
 - name: blocks_message_debug_0
@@ -443,7 +467,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [2016, 776.0]
+    coordinate: [2016, 728.0]
     rotation: 0
     state: enabled
 - name: blocks_message_debug_0_0_0_0_0_0
@@ -507,7 +531,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1780.0, 1056]
+    coordinate: [1780.0, 1008]
     rotation: 90
     state: true
 - name: blocks_pdu_to_tagged_stream_0
@@ -558,7 +582,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1724.0, 1024]
+    coordinate: [1724.0, 976]
     rotation: 270
     state: true
 - name: blocks_rotator_cc_0
@@ -634,7 +658,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [2008, 916.0]
+    coordinate: [2008, 868.0]
     rotation: 0
     state: enabled
 - name: blocks_tagged_stream_to_pdu_0
@@ -668,7 +692,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1900.0, 1024]
+    coordinate: [1900.0, 976]
     rotation: 90
     state: true
 - name: blocks_unpacked_to_packed_xx_0
@@ -725,7 +749,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1844.0, 1056]
+    coordinate: [1844.0, 1008]
     rotation: 270
     state: true
 - name: digital_descrambler_bb_0
@@ -761,7 +785,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1240, 924.0]
+    coordinate: [1240, 876.0]
     rotation: 0
     state: enabled
 - name: digital_gfsk_demod_0
@@ -807,7 +831,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [888, 900.0]
+    coordinate: [888, 852.0]
     rotation: 0
     state: enabled
 - name: digital_gfsk_mod_0
@@ -877,8 +901,8 @@ blocks:
     digital_bandw_ch0: rf_samp_rate
     digital_bandw_ch1: rf_samp_rate
     filename: ''
-    gain_dB_ch0: lna_gain
-    gain_dB_ch1: pa_gain
+    gain_dB_ch0: tx_pa_gain
+    gain_dB_ch1: '1'
     length_tag_name: ''
     nco_freq_ch0: '0'
     nco_freq_ch1: '0'
@@ -912,7 +936,7 @@ blocks:
     digital_bandw_ch1: rf_samp_rate
     filename: ''
     gain_dB_ch0: lna_gain
-    gain_dB_ch1: pa_gain
+    gain_dB_ch1: '1'
     lna_path_ch0: '255'
     lna_path_ch1: '2'
     maxoutbuf: '0'
@@ -975,7 +999,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [520, 892.0]
+    coordinate: [520, 844.0]
     rotation: 0
     state: enabled
 - name: qtgui_freq_sink_x_0
@@ -1335,7 +1359,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [712, 916.0]
+    coordinate: [712, 868.0]
     rotation: 0
     state: enabled
 - name: rational_resampler_xxx_2_0
@@ -1409,7 +1433,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1376, 932.0]
+    coordinate: [1376, 884.0]
     rotation: 0
     state: enabled
 - name: satellites_hdlc_framer_0
@@ -1456,7 +1480,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1104, 944.0]
+    coordinate: [1104, 896.0]
     rotation: 0
     state: enabled
 - name: satellites_nrzi_encode_0
