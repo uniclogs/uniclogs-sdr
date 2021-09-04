@@ -217,6 +217,36 @@ blocks:
     coordinate: [1688, 108.0]
     rotation: 0
     state: enabled
+- name: on_off
+  id: variable_qtgui_chooser
+  parameters:
+    comment: ''
+    gui_hint: ''
+    label: ''
+    label0: 'Off'
+    label1: 'On'
+    label2: ''
+    label3: ''
+    label4: ''
+    labels: '[]'
+    num_opts: '2'
+    option0: '0'
+    option1: '1'
+    option2: '2'
+    option3: '3'
+    option4: '4'
+    options: '[0, 1, 2]'
+    orient: Qt.QVBoxLayout
+    type: int
+    value: '0'
+    widget: radio_buttons
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1920, 1300.0]
+    rotation: 0
+    state: true
 - name: pa_gain
   id: variable
   parameters:
@@ -901,7 +931,7 @@ blocks:
     digital_bandw_ch0: rf_samp_rate
     digital_bandw_ch1: rf_samp_rate
     filename: ''
-    gain_dB_ch0: tx_pa_gain
+    gain_dB_ch0: tx_pa_gain*on_off
     gain_dB_ch1: '1'
     length_tag_name: ''
     nco_freq_ch0: '0'
@@ -911,7 +941,7 @@ blocks:
     pa_path_ch1: '255'
     rf_freq: tx_rf_frequency
     samp_rate: rf_samp_rate
-    serial: 1D4C2CDB20B82C
+    serial: ''
   states:
     bus_sink: false
     bus_source: false
@@ -946,7 +976,7 @@ blocks:
     oversample: '0'
     rf_freq: rx_rf_frequency
     samp_rate: rf_samp_rate
-    serial: 1D4C2C95EEAE65
+    serial: ''
   states:
     bus_sink: false
     bus_source: false
