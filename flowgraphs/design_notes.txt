@@ -1,0 +1,25 @@
+design_notes.txt
+
+
+---
+G.N. LeBrasseur  5-Oct-2021
+
+Flowgraph external control
+
+*  Rx Doppler frequency offset
+   *  Pick up frequency offset from HamLib rigctld
+   *  HamLib rigctld gets offset from GPredict or any similar SGP4 orbit prediction code
+   *  Flowgraph picks up variable using XMLRPC server and places into variable doppler_offset
+   *  Flowgraph already tested to use this variable correctly
+
+*  Tx Transmit control
+   *  Simple Tx On/Off switch
+   *  Key up transmitter when outgoing "traffic" becomes available in the UPD socket according
+      to the following flow.
+     *  Key up transmitter
+     *  Wait TxDelay (In a variable, ~30 ms) time
+     *  Send traffic
+     *  Wait TxTail (In a variable, ~10 ms) time
+     *  Key down transmitter
+
+---
