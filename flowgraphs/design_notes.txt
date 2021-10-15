@@ -1,8 +1,12 @@
 design_notes.txt
 
-
+ See document in Google Docs for most up to date contents:
+ G.N. LeBrasseur  5-Oct-2021
+ 
+ https://docs.google.com/document/d/137q9PPhY1z-kGw0ocYX52ygXvYgOiKbJ8CejeCCMMpQ/edit
+ 
 ---
-G.N. LeBrasseur  5-Oct-2021
+
 
 Flowgraph external control
 
