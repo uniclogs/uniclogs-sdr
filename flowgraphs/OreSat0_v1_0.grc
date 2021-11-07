@@ -14,7 +14,7 @@ options:
     gen_linking: dynamic
     generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: g3ruh_rx_edl_tx_edl_rx
+    id: OreSat0_v1_0
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -25,7 +25,7 @@ options:
     run_options: prompt
     sizing_mode: fixed
     thread_safe_setters: ''
-    title: G3RUH Receiver / EDL Transmitter & Receiver
+    title: UHF G3RUH & EDL Receiver / UHF -or- L-Band EDL Transmitter
     window_size: ''
   states:
     bus_sink: false
@@ -45,7 +45,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [640, 2580.0]
+    coordinate: [576, 2564.0]
     rotation: 0
     state: enabled
 - name: L_mod_sensitivity
@@ -57,7 +57,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [640, 2516.0]
+    coordinate: [576, 2500.0]
     rotation: 0
     state: enabled
 - name: L_tx_bit_rate
@@ -69,7 +69,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [240, 2516.0]
+    coordinate: [208, 2500.0]
     rotation: 0
     state: enabled
 - name: L_tx_deviation
@@ -83,7 +83,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [456, 2516.0]
+    coordinate: [400, 2500.0]
     rotation: 0
     state: enabled
 - name: L_tx_lna_gain
@@ -95,7 +95,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [856, 1572.0]
+    coordinate: [1384, 1436.0]
     rotation: 0
     state: enabled
 - name: L_tx_modulation_index
@@ -107,7 +107,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [456, 2612.0]
+    coordinate: [400, 2596.0]
     rotation: 0
     state: enabled
 - name: L_tx_pa_gain
@@ -128,7 +128,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [856, 1452.0]
+    coordinate: [1384, 1316.0]
     rotation: 0
     state: enabled
 - name: L_tx_pa_gain
@@ -144,7 +144,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [968, 1572.0]
+    coordinate: [1496, 1436.0]
     rotation: 0
     state: disabled
 - name: L_tx_ptt_switch
@@ -174,7 +174,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1128, 1452.0]
+    coordinate: [1616, 1316.0]
     rotation: 0
     state: true
 - name: L_tx_rf_frequency
@@ -186,7 +186,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [728, 1460.0]
+    coordinate: [1256, 1324.0]
     rotation: 0
     state: enabled
 - name: L_tx_samp_rate
@@ -210,7 +210,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [240, 2660.0]
+    coordinate: [208, 2652.0]
     rotation: 0
     state: enabled
 - name: L_tx_symbol_rate
@@ -222,7 +222,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [240, 2580.0]
+    coordinate: [208, 2564.0]
     rotation: 0
     state: enabled
 - name: bit_rate
@@ -234,7 +234,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [776, 40.0]
+    coordinate: [752, 140.0]
     rotation: 0
     state: enabled
 - name: bit_rate_0
@@ -246,7 +246,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1632, 24.0]
+    coordinate: [1632, 132.0]
     rotation: 0
     state: enabled
 - name: demod_input_rate
@@ -258,7 +258,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1008, 88.0]
+    coordinate: [1008, 204.0]
     rotation: 0
     state: enabled
 - name: demod_input_rate_0
@@ -270,7 +270,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1888, 88.0]
+    coordinate: [1888, 204.0]
     rotation: 0
     state: enabled
 - name: demod_sensitivity
@@ -282,7 +282,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1008, 24.0]
+    coordinate: [1008, 132.0]
     rotation: 0
     state: enabled
 - name: demod_sensitivity_0
@@ -294,7 +294,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1888, 24.0]
+    coordinate: [1888, 132.0]
     rotation: 0
     state: enabled
 - name: deviation
@@ -308,7 +308,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [880, 24.0]
+    coordinate: [864, 108.0]
     rotation: 0
     state: enabled
 - name: deviation_0
@@ -322,7 +322,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1744, 24.0]
+    coordinate: [1744, 108.0]
     rotation: 0
     state: enabled
 - name: doppler_offset
@@ -371,7 +371,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [264, 1284.0]
+    coordinate: [256, 1388.0]
     rotation: 0
     state: enabled
 - name: lna_gain
@@ -392,7 +392,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [392, 1212.0]
+    coordinate: [392, 1316.0]
     rotation: 0
     state: enabled
 - name: lna_gain
@@ -408,7 +408,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [472, 1332.0]
+    coordinate: [472, 1436.0]
     rotation: 0
     state: disabled
 - name: mod_input_rate
@@ -420,7 +420,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [616, 1772.0]
+    coordinate: [528, 1788.0]
     rotation: 0
     state: enabled
 - name: mod_sensitivity
@@ -432,7 +432,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [616, 1708.0]
+    coordinate: [528, 1724.0]
     rotation: 0
     state: enabled
 - name: modulation_index
@@ -444,7 +444,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [880, 120.0]
+    coordinate: [864, 204.0]
     rotation: 0
     state: enabled
 - name: modulation_index_0
@@ -456,7 +456,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1744, 120.0]
+    coordinate: [1744, 204.0]
     rotation: 0
     state: enabled
 - name: pa_gain
@@ -468,7 +468,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [392, 1332.0]
+    coordinate: [392, 1436.0]
     rotation: 0
     state: enabled
 - name: rf_samp_rate
@@ -480,7 +480,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [56, 1308.0]
+    coordinate: [24, 1484.0]
     rotation: 0
     state: enabled
 - name: rx_rf_frequency
@@ -492,7 +492,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [264, 1220.0]
+    coordinate: [256, 1324.0]
     rotation: 0
     state: enabled
 - name: samp_rate
@@ -504,7 +504,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [688, 104.0]
+    coordinate: [592, 140.0]
     rotation: 0
     state: enabled
 - name: samp_rate_0
@@ -516,7 +516,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1536, 88.0]
+    coordinate: [1472, 132.0]
     rotation: 0
     state: enabled
 - name: samples_per_symbol
@@ -528,7 +528,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [736, 184.0]
+    coordinate: [592, 204.0]
     rotation: 0
     state: enabled
 - name: samples_per_symbol_0
@@ -540,7 +540,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1600, 168.0]
+    coordinate: [1472, 204.0]
     rotation: 0
     state: enabled
 - name: symbol_rate
@@ -552,7 +552,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [776, 104.0]
+    coordinate: [752, 204.0]
     rotation: 0
     state: enabled
 - name: symbol_rate_0
@@ -564,7 +564,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1632, 88.0]
+    coordinate: [1632, 204.0]
     rotation: 0
     state: enabled
 - name: tx_bit_rate
@@ -576,7 +576,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [216, 1708.0]
+    coordinate: [192, 1724.0]
     rotation: 0
     state: enabled
 - name: tx_deviation
@@ -590,7 +590,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [416, 1708.0]
+    coordinate: [368, 1724.0]
     rotation: 0
     state: enabled
 - name: tx_lna_gain
@@ -602,9 +602,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [856, 1324.0]
+    coordinate: [792, 1428.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: tx_modulation_index
   id: variable
   parameters:
@@ -614,7 +614,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [416, 1804.0]
+    coordinate: [368, 1820.0]
     rotation: 0
     state: enabled
 - name: tx_pa_gain
@@ -635,9 +635,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [856, 1204.0]
+    coordinate: [792, 1308.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: tx_pa_gain
   id: variable
   parameters:
@@ -651,7 +651,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [952, 1324.0]
+    coordinate: [888, 1428.0]
     rotation: 0
     state: disabled
 - name: tx_ptt_switch
@@ -681,9 +681,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1128, 1204.0]
+    coordinate: [992, 1308.0]
     rotation: 0
-    state: true
+    state: disabled
 - name: tx_rf_frequency
   id: variable
   parameters:
@@ -693,9 +693,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [728, 1212.0]
+    coordinate: [664, 1316.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: tx_samp_rate
   id: variable
   parameters:
@@ -705,7 +705,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [24, 1820.0]
+    coordinate: [32, 1844.0]
     rotation: 0
     state: enabled
 - name: tx_samples_per_symbol
@@ -717,7 +717,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [216, 1852.0]
+    coordinate: [192, 1876.0]
     rotation: 0
     state: enabled
 - name: tx_symbol_rate
@@ -729,7 +729,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [216, 1772.0]
+    coordinate: [192, 1788.0]
     rotation: 0
     state: enabled
 - name: analog_sig_source_x_0
@@ -779,7 +779,7 @@ blocks:
     bus_structure: null
     coordinate: [2200, 848.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: blocks_message_debug_0_0_0_0_0_0
   id: blocks_message_debug
   parameters:
@@ -1570,7 +1570,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [576, 32.0]
+    coordinate: [720, 28.0]
     rotation: 0
     state: true
 - name: note_0_0
@@ -1587,56 +1587,109 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1408, 24.0]
+    coordinate: [1608, 28.0]
     rotation: 0
     state: true
 - name: note_0_0_0
   id: note
   parameters:
     alias: ''
-    comment: 'Set for 96k b/s
+    comment: 'UHF Transmitter
+
+      Set for 96k b/s
 
       MSK Modulatgion
 
       EDL / CCSDS Frames'
-    note: EDL Transmitter variables
+    note: UHF Transmitter
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [24, 1716.0]
+    coordinate: [32, 1724.0]
     rotation: 0
     state: enabled
 - name: note_0_0_0_0_0
   id: note
   parameters:
     alias: ''
-    comment: 'Set for 60 or 120k b/s
+    comment: 'L-Band transmitter
+
+      Set for 60 or 120k b/s
 
       MSK Modulatgion
 
       EDL / CCSDS Frames'
-    note: EDL L-Band Transmitter variables
+    note: L-Band Transmitter
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [32, 2524.0]
+    coordinate: [32, 2500.0]
     rotation: 0
     state: enabled
 - name: note_0_1
   id: note
   parameters:
     alias: ''
-    comment: 'Use 436.5 MHz Amateur 70cm
+    comment: 'UHF Receiver
 
-      frequency for both Rx and Tx'
+      435 to 438 MHz Amateur Band
+
+
+      UHF Transmitter
+
+      435 to 438 MHz Amateur Band
+
+
+      L-Band Transmitter
+
+      1260 to 1270 MHz Amateur Band'
     note: SDR Setup
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [56, 1228.0]
+    coordinate: [24, 1316.0]
+    rotation: 0
+    state: true
+- name: note_1
+  id: note
+  parameters:
+    alias: ''
+    comment: ''
+    note: UHF Receiver
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [328, 1260.0]
+    rotation: 0
+    state: true
+- name: note_2
+  id: note
+  parameters:
+    alias: ''
+    comment: ''
+    note: UHF Transmitter
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [840, 1244.0]
+    rotation: 0
+    state: disabled
+- name: note_3
+  id: note
+  parameters:
+    alias: ''
+    comment: ''
+    note: L-Band Transmitter
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1448, 1252.0]
     rotation: 0
     state: true
 - name: qtgui_freq_sink_x_0
