@@ -831,7 +831,7 @@ blocks:
     bus_structure: null
     coordinate: [64, 2928.0]
     rotation: 180
-    state: disabled
+    state: enabled
 - name: blocks_multiply_xx_0
   id: blocks_multiply_xx
   parameters:
@@ -1465,7 +1465,7 @@ blocks:
     pa_path_ch1: '255'
     rf_freq: L_tx_rf_frequency
     samp_rate: rf_samp_rate
-    serial: ''
+    serial: 1D4C2CDB20B82C
   states:
     bus_sink: false
     bus_source: false
@@ -1500,7 +1500,7 @@ blocks:
     oversample: '0'
     rf_freq: rx_rf_frequency
     samp_rate: rf_samp_rate
-    serial: ''
+    serial: 1D4C2C95EEAE65
   states:
     bus_sink: false
     bus_source: false
