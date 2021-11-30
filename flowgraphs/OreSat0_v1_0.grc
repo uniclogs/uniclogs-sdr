@@ -78,7 +78,7 @@ blocks:
     comment: 'Set for MSK,
 
       a subset of BFSK'
-    value: L_tx_bit_rate/4
+    value: L_tx_bit_rate/3
   states:
     bus_sink: false
     bus_source: false
