@@ -474,7 +474,7 @@ blocks:
     alias: ''
     amp: '1'
     comment: ''
-    freq: gpredict_tx_frequency - tx_center_frequency + tx_occupied_bandwidth
+    freq: gpredict_tx_frequency - tx_center_frequency + tx_offset
     maxoutbuf: '0'
     minoutbuf: '0'
     offset: '0'
