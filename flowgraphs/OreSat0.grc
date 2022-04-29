@@ -1560,13 +1560,13 @@ blocks:
     digital_bandw_ch1: rf_samp_rate
     filename: ''
     gain_dB_ch0: tx_gain*tx_ptt_switch
-    gain_dB_ch1: '1'
+    gain_dB_ch1: tx_gain*tx_ptt_switch
     length_tag_name: ''
     nco_freq_ch0: '0'
     nco_freq_ch1: '0'
     oversample: '0'
     pa_path_ch0: tx_path
-    pa_path_ch1: '255'
+    pa_path_ch1: tx_path
     rf_freq: tx_tune_frequency
     samp_rate: rf_samp_rate
     serial: ''
@@ -1587,7 +1587,7 @@ blocks:
     analog_bandw_ch1: 1.5e6
     calibr_bandw_ch0: 2.5e6
     calibr_bandw_ch1: 2.5e6
-    channel_mode: '0'
+    channel_mode: tx_channel
     comment: ''
     dacVal: '180'
     digital_bandw_ch0: rf_samp_rate
