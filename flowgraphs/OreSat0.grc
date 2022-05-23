@@ -1667,7 +1667,7 @@ blocks:
     alias: ''
     beta: '6.76'
     comment: ''
-    cutoff_freq: tx_occupied_bandwidth
+    cutoff_freq: tx_occupied_bandwidth * 1.2
     decim: '1'
     gain: '1'
     interp: '1'
