@@ -115,7 +115,7 @@ blocks:
     option: rf_samp_rate
     section: main
     type: real
-    value: 2e6
+    value: 1.92e6
     writeback: None
   states:
     bus_sink: false
