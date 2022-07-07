@@ -2383,8 +2383,8 @@ blocks:
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    postamble_bytes: '10'
-    preamble_bytes: '50'
+    postamble_bytes: '16'
+    preamble_bytes: '32'
   states:
     bus_sink: false
     bus_source: false
