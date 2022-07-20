@@ -1,3 +1,6 @@
+# Configs that could contain secrets
+flowgraphs/OreSat0.cfg
+
 # Custom
 dist
 build
