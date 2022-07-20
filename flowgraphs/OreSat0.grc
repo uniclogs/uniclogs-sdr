@@ -1401,7 +1401,7 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    bt: '0.5'
+    bt: tx_bt
     comment: ''
     do_unpack: 'True'
     log: 'False'
@@ -2523,6 +2523,23 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [408, 120.0]
+    rotation: 0
+    state: true
+- name: tx_bt
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: ''
+    short_id: g
+    type: eng_float
+    value: '0.5'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [752, 4.0]
     rotation: 0
     state: true
 - name: tx_gain
