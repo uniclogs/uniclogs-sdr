@@ -875,8 +875,8 @@ blocks:
     coordinate: [324.0, 2672]
     rotation: 90
     state: enabled
-- name: blocks_pdu_set_0
-  id: blocks_pdu_set
+- name: pdu_pdu_set_0
+  id: pdu_pdu_set
   parameters:
     affinity: ''
     alias: ''
@@ -892,8 +892,8 @@ blocks:
     coordinate: [2232, 1172.0]
     rotation: 0
     state: true
-- name: blocks_pdu_set_1
-  id: blocks_pdu_set
+- name: pdu_pdu_set_1
+  id: pdu_pdu_set
   parameters:
     affinity: ''
     alias: ''
@@ -909,8 +909,8 @@ blocks:
     coordinate: [2360, 1532.0]
     rotation: 0
     state: true
-- name: blocks_pdu_set_1_0
-  id: blocks_pdu_set
+- name: pdu_pdu_set_1_0
+  id: pdu_pdu_set
   parameters:
     affinity: ''
     alias: ''
@@ -926,8 +926,8 @@ blocks:
     coordinate: [1968, 1604.0]
     rotation: 0
     state: disabled
-- name: blocks_pdu_set_2
-  id: blocks_pdu_set
+- name: pdu_pdu_set_2
+  id: pdu_pdu_set
   parameters:
     affinity: ''
     alias: ''
@@ -943,8 +943,8 @@ blocks:
     coordinate: [96, 2676.0]
     rotation: 180
     state: true
-- name: blocks_pdu_to_tagged_stream_0_0_0
-  id: blocks_pdu_to_tagged_stream
+- name: pdu_pdu_to_tagged_stream_0_0_0
+  id: pdu_pdu_to_tagged_stream
   parameters:
     affinity: ''
     alias: ''
@@ -960,8 +960,8 @@ blocks:
     coordinate: [720, 2572.0]
     rotation: 0
     state: enabled
-- name: blocks_pdu_to_tagged_stream_1_0
-  id: blocks_pdu_to_tagged_stream
+- name: pdu_pdu_to_tagged_stream_1_0
+  id: pdu_pdu_to_tagged_stream
   parameters:
     affinity: ''
     alias: ''
@@ -977,8 +977,8 @@ blocks:
     coordinate: [1884.0, 1808]
     rotation: 270
     state: enabled
-- name: blocks_pdu_to_tagged_stream_1_0_0
-  id: blocks_pdu_to_tagged_stream
+- name: pdu_pdu_to_tagged_stream_1_0_0
+  id: pdu_pdu_to_tagged_stream
   parameters:
     affinity: ''
     alias: ''
@@ -994,8 +994,8 @@ blocks:
     coordinate: [1316.0, 1880]
     rotation: 270
     state: disabled
-- name: blocks_pdu_to_tagged_stream_1_1_0
-  id: blocks_pdu_to_tagged_stream
+- name: pdu_pdu_to_tagged_stream_1_1_0
+  id: pdu_pdu_to_tagged_stream
   parameters:
     affinity: ''
     alias: ''
@@ -1111,8 +1111,8 @@ blocks:
     coordinate: [1496, 1096.0]
     rotation: 0
     state: disabled
-- name: blocks_tagged_stream_to_pdu_0_0
-  id: blocks_tagged_stream_to_pdu
+- name: pdu_tagged_stream_to_pdu_0_0
+  id: pdu_tagged_stream_to_pdu
   parameters:
     affinity: ''
     alias: ''
@@ -1128,8 +1128,8 @@ blocks:
     coordinate: [2076.0, 1808]
     rotation: 90
     state: enabled
-- name: blocks_tagged_stream_to_pdu_0_0_0
-  id: blocks_tagged_stream_to_pdu
+- name: pdu_tagged_stream_to_pdu_0_0_0
+  id: pdu_tagged_stream_to_pdu
   parameters:
     affinity: ''
     alias: ''
@@ -1145,8 +1145,8 @@ blocks:
     coordinate: [1516.0, 1880]
     rotation: 90
     state: disabled
-- name: blocks_tagged_stream_to_pdu_0_1_0
-  id: blocks_tagged_stream_to_pdu
+- name: pdu_tagged_stream_to_pdu_0_1_0
+  id: pdu_tagged_stream_to_pdu
   parameters:
     affinity: ''
     alias: ''
@@ -1162,8 +1162,8 @@ blocks:
     coordinate: [460.0, 2640]
     rotation: 90
     state: enabled
-- name: blocks_tagged_stream_to_pdu_1
-  id: blocks_tagged_stream_to_pdu
+- name: pdu_tagged_stream_to_pdu_1
+  id: pdu_tagged_stream_to_pdu
   parameters:
     affinity: ''
     alias: ''
@@ -2726,27 +2726,27 @@ connections:
 - [blocks_packed_to_unpacked_xx_0_0, '0', blocks_unpacked_to_packed_xx_1_0, '0']
 - [blocks_packed_to_unpacked_xx_0_0_0, '0', blocks_unpacked_to_packed_xx_1_0_0, '0']
 - [blocks_packed_to_unpacked_xx_0_1_0, '0', blocks_unpacked_to_packed_xx_1_1_0, '0']
-- [blocks_pdu_set_0, pdus, blocks_message_debug_0, print_pdu]
-- [blocks_pdu_set_1, pdus, blocks_message_debug_0_0, print_pdu]
-- [blocks_pdu_set_1_0, pdus, blocks_message_debug_0_0, print_pdu]
-- [blocks_pdu_set_2, pdus, blocks_message_debug_0_0_0_0_0_0_1_0, print_pdu]
-- [blocks_pdu_to_tagged_stream_0_0_0, '0', digital_scrambler_bb_0_0_0, '0']
-- [blocks_pdu_to_tagged_stream_1_0, '0', blocks_packed_to_unpacked_xx_0_0, '0']
-- [blocks_pdu_to_tagged_stream_1_0_0, '0', blocks_packed_to_unpacked_xx_0_0_0, '0']
-- [blocks_pdu_to_tagged_stream_1_1_0, '0', blocks_packed_to_unpacked_xx_0_1_0, '0']
+- [pdu_pdu_set_0, pdus, blocks_message_debug_0, print_pdu]
+- [pdu_pdu_set_1, pdus, blocks_message_debug_0_0, print_pdu]
+- [pdu_pdu_set_1_0, pdus, blocks_message_debug_0_0, print_pdu]
+- [pdu_pdu_set_2, pdus, blocks_message_debug_0_0_0_0_0_0_1_0, print_pdu]
+- [pdu_pdu_to_tagged_stream_0_0_0, '0', digital_scrambler_bb_0_0_0, '0']
+- [pdu_pdu_to_tagged_stream_1_0, '0', blocks_packed_to_unpacked_xx_0_0, '0']
+- [pdu_pdu_to_tagged_stream_1_0_0, '0', blocks_packed_to_unpacked_xx_0_0_0, '0']
+- [pdu_pdu_to_tagged_stream_1_1_0, '0', blocks_packed_to_unpacked_xx_0_1_0, '0']
 - [network_socket_pdu_0_0_0_0, pdus, virtual_sink_1, '0']
-- [blocks_tagged_stream_to_pdu_0_0, pdus, satellites_pdu_length_filter_0, in]
-- [blocks_tagged_stream_to_pdu_0_0_0, pdus, blocks_message_debug_0_0_0, print_pdu]
-- [blocks_tagged_stream_to_pdu_0_0_0, pdus, network_socket_pdu_0_1_0, pdus]
-- [blocks_tagged_stream_to_pdu_0_1_0, pdus, satellites_hdlc_framer_0_0_0, in]
-- [blocks_tagged_stream_to_pdu_1, pdus, blocks_pdu_set_1_0, pdus]
+- [pdu_tagged_stream_to_pdu_0_0, pdus, satellites_pdu_length_filter_0, in]
+- [pdu_tagged_stream_to_pdu_0_0_0, pdus, blocks_message_debug_0_0_0, print_pdu]
+- [pdu_tagged_stream_to_pdu_0_0_0, pdus, network_socket_pdu_0_1_0, pdus]
+- [pdu_tagged_stream_to_pdu_0_1_0, pdus, satellites_hdlc_framer_0_0_0, in]
+- [pdu_tagged_stream_to_pdu_1, pdus, pdu_pdu_set_1_0, pdus]
 - [blocks_unpacked_to_packed_xx_0_0_0, '0', digital_gfsk_mod_0_0_0, '0']
 - [blocks_unpacked_to_packed_xx_0_0_0, '0', digital_gfsk_mod_0_0_0_0, '0']
-- [blocks_unpacked_to_packed_xx_1_0, '0', blocks_tagged_stream_to_pdu_0_0, '0']
-- [blocks_unpacked_to_packed_xx_1_0_0, '0', blocks_tagged_stream_to_pdu_0_0_0, '0']
-- [blocks_unpacked_to_packed_xx_1_1_0, '0', blocks_tagged_stream_to_pdu_0_1_0, '0']
+- [blocks_unpacked_to_packed_xx_1_0, '0', pdu_tagged_stream_to_pdu_0_0, '0']
+- [blocks_unpacked_to_packed_xx_1_0_0, '0', pdu_tagged_stream_to_pdu_0_0_0, '0']
+- [blocks_unpacked_to_packed_xx_1_1_0, '0', pdu_tagged_stream_to_pdu_0_1_0, '0']
 - [digital_descrambler_bb_0, '0', satellites_hdlc_deframer_0, '0']
-- [digital_descrambler_bb_0_0, '0', blocks_tagged_stream_to_pdu_1, '0']
+- [digital_descrambler_bb_0_0, '0', pdu_tagged_stream_to_pdu_1, '0']
 - [digital_descrambler_bb_0_0, '0', satellites_hdlc_deframer_0_0, '0']
 - [digital_gfsk_demod_0, '0', satellites_nrzi_decode_0, '0']
 - [digital_gfsk_demod_0_0, '0', satellites_nrzi_decode_0_0, '0']
@@ -2772,27 +2772,27 @@ connections:
 - [rational_resampler_xxx_2_0_0_0_0, '0', blocks_multiply_const_vxx_0, '0']
 - [satellites_ax25_deframer_0, out, blocks_message_debug_0_1, print_pdu]
 - [satellites_ax25_deframer_0, out, network_socket_pdu_0_2, pdus]
-- [satellites_ax25_deframer_0_0, out, blocks_pdu_to_tagged_stream_1_0_0, pdus]
+- [satellites_ax25_deframer_0_0, out, pdu_pdu_to_tagged_stream_1_0_0, pdus]
 - [satellites_fsk_demodulator_0, '0', satellites_ax25_deframer_0, '0']
 - [satellites_fsk_demodulator_0_0, '0', satellites_ax25_deframer_0_0, '0']
 - [satellites_hdlc_deframer_0, out, satellites_pdu_length_filter_0_0, in]
-- [satellites_hdlc_deframer_0_0, out, blocks_pdu_to_tagged_stream_1_0, pdus]
+- [satellites_hdlc_deframer_0_0, out, pdu_pdu_to_tagged_stream_1_0, pdus]
 - [satellites_hdlc_framer_0_0_0, out, blocks_message_debug_0_0_0_0_0_0_0_0_0, print_pdu]
-- [satellites_hdlc_framer_0_0_0, out, blocks_pdu_to_tagged_stream_0_0_0, pdus]
+- [satellites_hdlc_framer_0_0_0, out, pdu_pdu_to_tagged_stream_0_0_0, pdus]
 - [satellites_nrzi_decode_0, '0', digital_descrambler_bb_0, '0']
 - [satellites_nrzi_decode_0_0, '0', digital_descrambler_bb_0_0, '0']
 - [satellites_nrzi_encode_0_0_0, '0', blocks_unpacked_to_packed_xx_0_0_0, '0']
-- [satellites_pdu_length_filter_0, out, blocks_pdu_set_1, pdus]
+- [satellites_pdu_length_filter_0, out, pdu_pdu_set_1, pdus]
 - [satellites_pdu_length_filter_0, out, virtual_sink_4, '0']
-- [satellites_pdu_length_filter_0_0, out, blocks_pdu_set_0, pdus]
+- [satellites_pdu_length_filter_0_0, out, pdu_pdu_set_0, pdus]
 - [satellites_pdu_length_filter_0_0, out, virtual_sink_3, '0']
 - [satellites_pdu_length_filter_1, out, virtual_sink_1, '0']
 - [virtual_source_0, '0', blocks_file_sink_0_0, '0']
 - [virtual_source_0, '0', limesdr_sink_0_0_0, '0']
 - [virtual_source_0, '0', qtgui_freq_sink_x_1_0_0_0, '0']
 - [virtual_source_0, '0', soapy_hackrf_sink_0, '0']
-- [virtual_source_1, '0', blocks_pdu_set_2, pdus]
-- [virtual_source_1, '0', blocks_pdu_to_tagged_stream_1_1_0, pdus]
+- [virtual_source_1, '0', pdu_pdu_set_2, pdus]
+- [virtual_source_1, '0', pdu_pdu_to_tagged_stream_1_1_0, pdus]
 - [virtual_source_2, '0', blocks_multiply_xx_0, '0']
 - [virtual_source_3, '0', network_socket_pdu_0, pdus]
 - [virtual_source_4, '0', network_socket_pdu_0_1, pdus]
