@@ -819,6 +819,25 @@ blocks:
     coordinate: [496, 1400.0]
     rotation: 0
     state: true
+- name: blocks_null_source_0
+  id: blocks_null_source
+  parameters:
+    affinity: ''
+    alias: ''
+    bus_structure_source: '[[0,],]'
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_outputs: '1'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [200, 544.0]
+    rotation: 0
+    state: true
 - name: blocks_packed_to_unpacked_xx_0_0
   id: blocks_packed_to_unpacked_xx
   parameters:
@@ -1273,7 +1292,7 @@ blocks:
     bus_structure: null
     coordinate: [1216, 568.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: limesdr_source_0
   id: limesdr_source
   parameters:
@@ -1308,7 +1327,7 @@ blocks:
     bus_structure: null
     coordinate: [48, 320.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: low_pass_filter_0
   id: low_pass_filter
   parameters:
@@ -2496,7 +2515,7 @@ blocks:
     alias: ''
     amp: 'True'
     bandwidth: '0'
-    center_freq: tx_center_frequency
+    center_freq: tx_tune_frequency
     comment: ''
     dev_args: ''
     samp_rate: rf_samp_rate
@@ -2508,7 +2527,7 @@ blocks:
     bus_structure: null
     coordinate: [1040, 584.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: strobe_delay
   id: parameter
   parameters:
@@ -2724,6 +2743,7 @@ connections:
 - [blocks_mute_xx_1, '0', low_pass_filter_0, '0']
 - [blocks_mute_xx_1, '0', low_pass_filter_0_0, '0']
 - [blocks_mute_xx_1, '0', qtgui_freq_sink_x_1, '0']
+- [blocks_null_source_0, '0', virtual_sink_2, '0']
 - [blocks_packed_to_unpacked_xx_0_0, '0', blocks_unpacked_to_packed_xx_1_0, '0']
 - [blocks_packed_to_unpacked_xx_0_0_0, '0', blocks_unpacked_to_packed_xx_1_0_0, '0']
 - [blocks_packed_to_unpacked_xx_0_1_0, '0', blocks_unpacked_to_packed_xx_1_1_0, '0']
