@@ -525,27 +525,6 @@ blocks:
     coordinate: [2664, 2592.0]
     rotation: 0
     state: true
-- name: blocks_delay_0
-  id: blocks_delay
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: 'This delay will allow the power amp PTT to engage before signal is produced
-
-      Still need to add a code block to send the !l_tx_on before this delay starts'
-    delay: int(rf_samp_rate*0.2)
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_ports: '1'
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [2192, 2576.0]
-    rotation: 0
-    state: true
 - name: blocks_file_sink_0
   id: blocks_file_sink
   parameters:
@@ -912,6 +891,25 @@ blocks:
     coordinate: [324.0, 2672]
     rotation: 90
     state: enabled
+- name: blocks_tagged_stream_multiply_length_0
+  id: blocks_tagged_stream_multiply_length
+  parameters:
+    affinity: ''
+    alias: ''
+    c: samples_per_symbol
+    comment: ''
+    lengthtagname: packet_len
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1416, 2888.0]
+    rotation: 0
+    state: enabled
 - name: blocks_unpacked_to_packed_xx_0_0_0
   id: blocks_unpacked_to_packed_xx
   parameters:
@@ -1005,6 +1003,27 @@ blocks:
     coordinate: [200, 8.0]
     rotation: 0
     state: true
+- name: digital_burst_shaper_xx_0
+  id: digital_burst_shaper_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    insert_phasing: 'True'
+    length_tag_name: packet_len
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    post_padding: 16*1024
+    pre_padding: 16*1024
+    type: complex
+    window: firdes.window(window.WIN_HANN, 50, 0)
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1712, 2868.0]
+    rotation: 0
+    state: enabled
 - name: digital_correlate_access_code_tag_xx_0
   id: digital_correlate_access_code_tag_xx
   parameters:
@@ -2991,7 +3010,6 @@ connections:
 - [analog_sig_source_x_0, '0', qtgui_freq_sink_x_2, '0']
 - [analog_sig_source_x_0_1, '0', blocks_multiply_xx_0_1, '0']
 - [blocks_add_xx_0, '0', virtual_sink_0, '0']
-- [blocks_delay_0, '0', blocks_multiply_xx_0_1, '1']
 - [blocks_file_source_0, '0', virtual_sink_2, '0']
 - [blocks_message_strobe_0_0, strobe, satellites_pdu_length_filter_1, in]
 - [blocks_multiply_const_vxx_0, '0', low_pass_filter_0_0_0, '0']
@@ -3005,18 +3023,20 @@ connections:
 - [blocks_packed_to_unpacked_xx_0_0, '0', blocks_unpacked_to_packed_xx_1_0, '0']
 - [blocks_packed_to_unpacked_xx_0_0_0, '0', blocks_unpacked_to_packed_xx_1_0_0, '0']
 - [blocks_packed_to_unpacked_xx_0_1_0, '0', blocks_unpacked_to_packed_xx_1_1_0, '0']
+- [blocks_tagged_stream_multiply_length_0, '0', digital_burst_shaper_xx_0, '0']
 - [blocks_unpacked_to_packed_xx_0_0_0, '0', digital_gfsk_mod_0_0_0, '0']
 - [blocks_unpacked_to_packed_xx_0_0_0, '0', digital_gfsk_mod_0_0_0_0, '0']
 - [blocks_unpacked_to_packed_xx_1_0, '0', pdu_tagged_stream_to_pdu_0_0, '0']
 - [blocks_unpacked_to_packed_xx_1_0_0, '0', pdu_tagged_stream_to_pdu_0_0_0, '0']
 - [blocks_unpacked_to_packed_xx_1_1_0, '0', pdu_tagged_stream_to_pdu_0_1_0, '0']
+- [digital_burst_shaper_xx_0, '0', rational_resampler_xxx_2_0_0_0_0, '0']
 - [digital_descrambler_bb_0, '0', satellites_hdlc_deframer_0, '0']
 - [digital_descrambler_bb_0_0, '0', pdu_tagged_stream_to_pdu_1, '0']
 - [digital_descrambler_bb_0_0, '0', satellites_hdlc_deframer_0_0, '0']
 - [digital_gfsk_demod_0, '0', satellites_nrzi_decode_0, '0']
 - [digital_gfsk_demod_0_0, '0', satellites_nrzi_decode_0_0, '0']
 - [digital_gfsk_demod_0_1, '0', satellites_nrzi_decode_0, '0']
-- [digital_gfsk_mod_0_0_0, '0', rational_resampler_xxx_2_0_0_0_0, '0']
+- [digital_gfsk_mod_0_0_0, '0', blocks_tagged_stream_multiply_length_0, '0']
 - [digital_gfsk_mod_0_0_0_0, '0', rational_resampler_xxx_2_0_0_0_0, '0']
 - [digital_scrambler_bb_0_0_0, '0', satellites_nrzi_encode_0_0_0, '0']
 - [gpredict_doppler_0, freq, blocks_msgpair_to_var_2, inpair]
@@ -3030,7 +3050,7 @@ connections:
 - [low_pass_filter_0_0, '0', qtgui_freq_sink_x_0_0, '0']
 - [low_pass_filter_0_0, '0', rational_resampler_xxx_0_0, '0']
 - [low_pass_filter_0_0, '0', satellites_fsk_demodulator_0_0, '0']
-- [low_pass_filter_0_0_0, '0', blocks_delay_0, '0']
+- [low_pass_filter_0_0_0, '0', blocks_multiply_xx_0_1, '1']
 - [network_socket_pdu_0_0_0_0, pdus, virtual_sink_1, '0']
 - [pdu_pdu_set_0, pdus, blocks_message_debug_0, print]
 - [pdu_pdu_set_1, pdus, blocks_message_debug_0_0, print]
