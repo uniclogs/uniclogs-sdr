@@ -742,9 +742,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1800, 2572.0]
+    coordinate: [1240, 644.0]
     rotation: 0
-    state: true
+    state: disabled
 - name: blocks_multiply_xx_0
   id: blocks_multiply_xx
   parameters:
@@ -1326,7 +1326,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1216, 568.0]
+    coordinate: [1432, 556.0]
     rotation: 0
     state: disabled
 - name: limesdr_source_0
@@ -1450,7 +1450,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1784, 2624.0]
+    coordinate: [1224, 692.0]
     rotation: 0
     state: true
 - name: network_socket_pdu_0
@@ -3012,7 +3012,7 @@ connections:
 - [blocks_add_xx_0, '0', virtual_sink_0, '0']
 - [blocks_file_source_0, '0', virtual_sink_2, '0']
 - [blocks_message_strobe_0_0, strobe, satellites_pdu_length_filter_1, in]
-- [blocks_multiply_const_vxx_0, '0', low_pass_filter_0_0_0, '0']
+- [blocks_multiply_const_vxx_0, '0', limesdr_sink_0_0_0, '0']
 - [blocks_multiply_xx_0, '0', blocks_mute_xx_1, '0']
 - [blocks_multiply_xx_0_1, '0', blocks_mute_xx_0, '0']
 - [blocks_mute_xx_0, '0', blocks_add_xx_0, '0']
@@ -3068,7 +3068,7 @@ connections:
 - [rational_resampler_xxx_0, '0', digital_gfsk_demod_0, '0']
 - [rational_resampler_xxx_0, '0', digital_gfsk_demod_0_1, '0']
 - [rational_resampler_xxx_0_0, '0', digital_gfsk_demod_0_0, '0']
-- [rational_resampler_xxx_2_0_0_0_0, '0', blocks_multiply_const_vxx_0, '0']
+- [rational_resampler_xxx_2_0_0_0_0, '0', low_pass_filter_0_0_0, '0']
 - [satellites_ax25_deframer_0, out, blocks_message_debug_0_1, print]
 - [satellites_ax25_deframer_0, out, network_socket_pdu_0_2, pdus]
 - [satellites_ax25_deframer_0_0, out, pdu_pdu_to_tagged_stream_1_0_0, pdus]
@@ -3087,7 +3087,7 @@ connections:
 - [satellites_pdu_length_filter_0_0, out, virtual_sink_3, '0']
 - [satellites_pdu_length_filter_1, out, virtual_sink_1, '0']
 - [virtual_source_0, '0', blocks_file_sink_0_0, '0']
-- [virtual_source_0, '0', limesdr_sink_0_0_0, '0']
+- [virtual_source_0, '0', blocks_multiply_const_vxx_0, '0']
 - [virtual_source_0, '0', osmosdr_sink_0, '0']
 - [virtual_source_0, '0', qtgui_freq_sink_x_1_0_0_0, '0']
 - [virtual_source_1, '0', pdu_pdu_set_2, pdus]
