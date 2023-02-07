@@ -432,16 +432,16 @@ blocks:
     coordinate: [816, 92.0]
     rotation: 0
     state: disabled
-- name: tx_selector
+- name: tx_selector_options
   id: variable
   parameters:
     comment: ''
-    value: '1'
+    value: '[''cw'', ''edl'']'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [2104, 2476.0]
+    coordinate: [2088, 2676.0]
     rotation: 0
     state: true
 - name: tx_tune_frequency
@@ -932,7 +932,7 @@ blocks:
     alias: ''
     comment: ''
     enabled: 'True'
-    input_index: tx_selector
+    input_index: tx_selector_options.index(tx_selector)
     maxoutbuf: '0'
     minoutbuf: '0'
     num_inputs: '2'
@@ -945,7 +945,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [2080, 2556.0]
+    coordinate: [2088, 2556.0]
     rotation: 0
     state: true
 - name: blocks_tagged_stream_multiply_length_0
@@ -2911,6 +2911,23 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [672, 8.0]
+    rotation: 0
+    state: true
+- name: tx_selector
+  id: parameter
+  parameters:
+    alias: ''
+    comment: ''
+    hide: none
+    label: startup state of TX Selector (cw, edl)
+    short_id: s
+    type: str
+    value: edl
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [2088, 2748.0]
     rotation: 0
     state: true
 - name: txband
