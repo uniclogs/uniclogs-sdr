@@ -432,6 +432,18 @@ blocks:
     coordinate: [816, 92.0]
     rotation: 0
     state: disabled
+- name: tx_selector
+  id: variable
+  parameters:
+    comment: ''
+    value: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [2104, 2476.0]
+    rotation: 0
+    state: true
 - name: tx_tune_frequency
   id: variable
   parameters:
@@ -505,6 +517,28 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [2112, 2320.0]
+    rotation: 0
+    state: enabled
+- name: analog_sig_source_x_0_1_0
+  id: analog_sig_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    amp: '1'
+    comment: ''
+    freq: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    phase: '0'
+    samp_rate: rf_samp_rate
+    type: complex
+    waveform: analog.GR_COS_WAVE
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1792, 2388.0]
     rotation: 0
     state: enabled
 - name: blocks_add_xx_0
@@ -891,6 +925,29 @@ blocks:
     coordinate: [324.0, 2672]
     rotation: 90
     state: enabled
+- name: blocks_selector_0
+  id: blocks_selector
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    enabled: 'True'
+    input_index: tx_selector
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_inputs: '2'
+    num_outputs: '1'
+    output_index: '0'
+    showports: 'True'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [2080, 2556.0]
+    rotation: 0
+    state: true
 - name: blocks_tagged_stream_multiply_length_0
   id: blocks_tagged_stream_multiply_length
   parameters:
@@ -1433,7 +1490,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1984, 2532.0]
+    coordinate: [1816, 2532.0]
     rotation: 0
     state: enabled
 - name: multiply_constant
@@ -3009,7 +3066,7 @@ blocks:
     addr: 0.0.0.0
     alias: ''
     comment: ''
-    port: '11180'
+    port: '10080'
   states:
     bus_sink: false
     bus_source: false
@@ -3023,6 +3080,7 @@ connections:
 - [analog_sig_source_x_0, '0', blocks_multiply_xx_0, '1']
 - [analog_sig_source_x_0, '0', qtgui_freq_sink_x_2, '0']
 - [analog_sig_source_x_0_1, '0', blocks_multiply_xx_0_1, '0']
+- [analog_sig_source_x_0_1_0, '0', blocks_selector_0, '0']
 - [blocks_add_xx_0, '0', virtual_sink_0, '0']
 - [blocks_file_source_0, '0', virtual_sink_2, '0']
 - [blocks_message_strobe_0_0, strobe, satellites_pdu_length_filter_1, in]
@@ -3037,6 +3095,7 @@ connections:
 - [blocks_packed_to_unpacked_xx_0_0, '0', blocks_unpacked_to_packed_xx_1_0, '0']
 - [blocks_packed_to_unpacked_xx_0_0_0, '0', blocks_unpacked_to_packed_xx_1_0_0, '0']
 - [blocks_packed_to_unpacked_xx_0_1_0, '0', blocks_unpacked_to_packed_xx_1_1_0, '0']
+- [blocks_selector_0, '0', blocks_multiply_xx_0_1, '1']
 - [blocks_tagged_stream_multiply_length_0, '0', digital_burst_shaper_xx_0, '0']
 - [blocks_unpacked_to_packed_xx_0_0_0, '0', digital_gfsk_mod_0_0_0, '0']
 - [blocks_unpacked_to_packed_xx_0_0_0, '0', digital_gfsk_mod_0_0_0_0, '0']
@@ -3064,7 +3123,7 @@ connections:
 - [low_pass_filter_0_0, '0', qtgui_freq_sink_x_0_0, '0']
 - [low_pass_filter_0_0, '0', rational_resampler_xxx_0_0, '0']
 - [low_pass_filter_0_0, '0', satellites_fsk_demodulator_0_0, '0']
-- [low_pass_filter_0_0_0, '0', blocks_multiply_xx_0_1, '1']
+- [low_pass_filter_0_0_0, '0', blocks_selector_0, '1']
 - [network_socket_pdu_0_0_0_0, pdus, virtual_sink_1, '0']
 - [pdu_pdu_set_0, pdus, blocks_message_debug_0, print]
 - [pdu_pdu_set_1, pdus, blocks_message_debug_0_0, print]
