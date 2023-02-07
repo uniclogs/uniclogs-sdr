@@ -3003,6 +3003,20 @@ blocks:
     coordinate: [816, 452.0]
     rotation: 0
     state: true
+- name: xmlrpc_server_0
+  id: xmlrpc_server
+  parameters:
+    addr: 0.0.0.0
+    alias: ''
+    comment: ''
+    port: '11180'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [840, 4.0]
+    rotation: 0
+    state: true
 
 connections:
 - [analog_noise_source_x_0, '0', blocks_add_xx_0, '1']
