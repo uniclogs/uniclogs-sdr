@@ -54,10 +54,10 @@ blocks:
     coordinate: [64, 4068.0]
     rotation: 0
     state: true
-- name: aos
+- name: aos_mute
   id: variable
   parameters:
-    comment: 'Start up with mute off
+    comment: 'Start up with mute 1=off
 
       Maybe this should change for production'
     value: '1'
@@ -393,13 +393,15 @@ blocks:
 - name: tx_ptt_switch
   id: variable
   parameters:
-    comment: ''
+    comment: 'This is a gain shunt
+
+      only used by the Lime'
     value: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [760, 2996.0]
+    coordinate: [1432, 788.0]
     rotation: 0
     state: enabled
 - name: tx_ptt_switch
@@ -739,7 +741,7 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    target: aos
+    target: aos_mute
   states:
     bus_sink: false
     bus_source: false
@@ -823,7 +825,7 @@ blocks:
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    mute: not bool(aos)
+    mute: not bool(aos_mute)
     type: complex
   states:
     bus_sink: false
@@ -840,7 +842,7 @@ blocks:
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    mute: not bool(aos)
+    mute: not bool(aos_mute)
     type: complex
   states:
     bus_sink: false
