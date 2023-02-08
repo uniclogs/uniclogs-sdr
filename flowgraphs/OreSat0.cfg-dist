@@ -2,6 +2,7 @@
 telemetry_host=localhost
 rf_samp_rate=1.92e6
 samples_per_symbol=4
+morse_callsign=KJ7SAT
 
 
 [rx]

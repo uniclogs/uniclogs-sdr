@@ -51,7 +51,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [64, 4068.0]
+    coordinate: [64, 4220.0]
     rotation: 0
     state: true
 - name: aos_mute
@@ -108,6 +108,35 @@ blocks:
     coordinate: [504, 2996.0]
     rotation: 0
     state: true
+- name: morse_bump
+  id: variable
+  parameters:
+    comment: ''
+    value: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [64, 3212.0]
+    rotation: 0
+    state: true
+- name: morse_callsign
+  id: variable_config
+  parameters:
+    comment: ''
+    config_file: conf
+    option: morse_callsign
+    section: main
+    type: string
+    value: KJ7SAT
+    writeback: None
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [496, 3812.0]
+    rotation: 0
+    state: enabled
 - name: rf_samp_rate
   id: variable_config
   parameters:
@@ -122,7 +151,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [64, 3660.0]
+    coordinate: [64, 3812.0]
     rotation: 0
     state: true
 - name: rx_beacon_bit_rate
@@ -139,7 +168,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [208, 3796.0]
+    coordinate: [208, 3948.0]
     rotation: 0
     state: true
 - name: rx_edl_bit_rate
@@ -156,7 +185,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [344, 3796.0]
+    coordinate: [344, 3948.0]
     rotation: 0
     state: true
 - name: rx_gain
@@ -194,7 +223,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [64, 3796.0]
+    coordinate: [64, 3948.0]
     rotation: 0
     state: true
 - name: rx_tune_frequency
@@ -223,7 +252,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [336, 3660.0]
+    coordinate: [336, 3812.0]
     rotation: 0
     state: true
 - name: telemetry_host
@@ -240,7 +269,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [192, 3660.0]
+    coordinate: [192, 3812.0]
     rotation: 0
     state: true
 - name: tx_bit_rate
@@ -257,7 +286,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 3932.0]
+    coordinate: [184, 4084.0]
     rotation: 0
     state: true
 - name: tx_center_frequency
@@ -274,7 +303,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [304, 3932.0]
+    coordinate: [304, 4084.0]
     rotation: 0
     state: true
 - name: tx_channel
@@ -291,7 +320,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [456, 3932.0]
+    coordinate: [456, 4084.0]
     rotation: 0
     state: true
 - name: tx_deviation
@@ -308,7 +337,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [64, 3932.0]
+    coordinate: [64, 4084.0]
     rotation: 0
     state: true
 - name: tx_gain
@@ -346,7 +375,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [680, 3932.0]
+    coordinate: [680, 4084.0]
     rotation: 0
     state: true
 - name: tx_occupied_bandwidth
@@ -370,7 +399,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [592, 3148.0]
+    coordinate: [592, 3300.0]
     rotation: 0
     state: true
 - name: tx_path
@@ -387,7 +416,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [568, 3932.0]
+    coordinate: [568, 4084.0]
     rotation: 0
     state: true
 - name: tx_ptt_switch
@@ -438,12 +467,12 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '[''cw'', ''edl'']'
+    value: '[''cw'', ''edl'', ''morse'']'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [352, 3428.0]
+    coordinate: [352, 3580.0]
     rotation: 0
     state: true
 - name: tx_tune_frequency
@@ -455,7 +484,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [696, 3148.0]
+    coordinate: [696, 3300.0]
     rotation: 0
     state: true
 - name: analog_noise_source_x_0
@@ -474,7 +503,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [744, 3412.0]
+    coordinate: [744, 3564.0]
     rotation: 0
     state: true
 - name: analog_sig_source_x_0
@@ -518,7 +547,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [376, 3148.0]
+    coordinate: [376, 3300.0]
     rotation: 0
     state: enabled
 - name: analog_sig_source_x_0_1_0
@@ -540,7 +569,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [88, 3188.0]
+    coordinate: [88, 3340.0]
     rotation: 0
     state: enabled
 - name: blocks_add_xx_0
@@ -558,7 +587,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [984, 3336.0]
+    coordinate: [984, 3488.0]
     rotation: 0
     state: true
 - name: blocks_file_sink_0
@@ -814,7 +843,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [640, 3304.0]
+    coordinate: [640, 3456.0]
     rotation: 0
     state: enabled
 - name: blocks_mute_xx_0
@@ -831,7 +860,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [824, 3320.0]
+    coordinate: [824, 3472.0]
     rotation: 0
     state: enabled
 - name: blocks_mute_xx_1
@@ -937,7 +966,7 @@ blocks:
     input_index: tx_selector_options.index(tx_selector)
     maxoutbuf: '0'
     minoutbuf: '0'
-    num_inputs: '2'
+    num_inputs: '3'
     num_outputs: '1'
     output_index: '0'
     showports: 'True'
@@ -947,7 +976,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [352, 3300.0]
+    coordinate: [352, 3452.0]
     rotation: 0
     state: true
 - name: blocks_tagged_stream_multiply_length_0
@@ -1045,6 +1074,23 @@ blocks:
     coordinate: [380.0, 2416]
     rotation: 270
     state: enabled
+- name: blocks_var_to_msg_0
+  id: blocks_var_to_msg
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    msgname: msg
+    target: morse_bump
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [64, 3140.0]
+    rotation: 0
+    state: true
 - name: conf
   id: parameter
   parameters:
@@ -1474,6 +1520,25 @@ blocks:
     coordinate: [1056, 2804.0]
     rotation: 0
     state: enabled
+- name: morse_hier_0
+  id: morse_hier
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    morse_dpw: '50'
+    morse_wpm: '20'
+    rf_samp_rate: rf_samp_rate
+    verbose: 'True'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [616, 3124.0]
+    rotation: 0
+    state: true
 - name: multiply_constant
   id: parameter
   parameters:
@@ -1633,7 +1698,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [32, 3604.0]
+    coordinate: [32, 3756.0]
     rotation: 0
     state: true
 - name: note_2
@@ -1934,6 +1999,24 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [1064, 844.0]
+    rotation: 0
+    state: true
+- name: pdu_pdu_lambda_0
+  id: pdu_pdu_lambda
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    fn: 'lambda x: pmt.intern(morse_callsign)'
+    key: pmt.intern("key")
+    maxoutbuf: '0'
+    metadict: Raw Message
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [344, 3148.0]
     rotation: 0
     state: true
 - name: pdu_pdu_set_0
@@ -2843,6 +2926,21 @@ blocks:
     coordinate: [96, 652.0]
     rotation: 0
     state: true
+- name: snippet_0
+  id: snippet
+  parameters:
+    alias: ''
+    code: "if self.get_tx_selector() == \"morse\":\n    self.set_morse_bump(1)"
+    comment: ''
+    priority: '0'
+    section: main_after_start
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [184, 3212.0]
+    rotation: 0
+    state: true
 - name: strobe_delay
   id: parameter
   parameters:
@@ -2900,7 +2998,7 @@ blocks:
     alias: ''
     comment: ''
     hide: none
-    label: startup state of TX Selector (cw, edl)
+    label: startup state of TX Selector (cw, edl, morse)
     short_id: s
     type: str
     value: edl
@@ -2908,7 +3006,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [504, 3388.0]
+    coordinate: [504, 3540.0]
     rotation: 0
     state: true
 - name: txband
@@ -2938,7 +3036,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1112, 3348.0]
+    coordinate: [1112, 3500.0]
     rotation: 0
     state: true
 - name: virtual_sink_1
@@ -3030,6 +3128,19 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [1256, 2852.0]
+    rotation: 0
+    state: true
+- name: virtual_sink_8
+  id: virtual_sink
+  parameters:
+    alias: ''
+    comment: ''
+    stream_id: morse_complete
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [848, 3148.0]
     rotation: 0
     state: true
 - name: virtual_source_0
@@ -3133,7 +3244,20 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [64, 3332.0]
+    coordinate: [64, 3484.0]
+    rotation: 0
+    state: true
+- name: virtual_source_8
+  id: virtual_source
+  parameters:
+    alias: ''
+    comment: ''
+    stream_id: morse_complete
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [64, 3540.0]
     rotation: 0
     state: true
 - name: xmlrpc_server_0
@@ -3177,6 +3301,7 @@ connections:
 - [blocks_unpacked_to_packed_xx_1_0, '0', pdu_tagged_stream_to_pdu_0_0, '0']
 - [blocks_unpacked_to_packed_xx_1_0_0, '0', pdu_tagged_stream_to_pdu_0_0_0, '0']
 - [blocks_unpacked_to_packed_xx_1_1_0, '0', pdu_tagged_stream_to_pdu_0_1_0, '0']
+- [blocks_var_to_msg_0, msgout, pdu_pdu_lambda_0, pdu]
 - [digital_burst_shaper_xx_0, '0', rational_resampler_xxx_2_0_0_0_0, '0']
 - [digital_descrambler_bb_0, '0', satellites_hdlc_deframer_0, '0']
 - [digital_descrambler_bb_0_0, '0', pdu_tagged_stream_to_pdu_1, '0']
@@ -3198,7 +3323,9 @@ connections:
 - [low_pass_filter_0_0, '0', rational_resampler_xxx_0_0, '0']
 - [low_pass_filter_0_0, '0', satellites_fsk_demodulator_0_0, '0']
 - [low_pass_filter_0_0_0, '0', virtual_sink_7, '0']
+- [morse_hier_0, '0', virtual_sink_8, '0']
 - [network_socket_pdu_0_0_0_0, pdus, virtual_sink_1, '0']
+- [pdu_pdu_lambda_0, pdu, morse_hier_0, msg_in]
 - [pdu_pdu_set_0, pdus, blocks_message_debug_0, print]
 - [pdu_pdu_set_1, pdus, blocks_message_debug_0_0, print]
 - [pdu_pdu_set_1_0, pdus, blocks_message_debug_0_0, print]
@@ -3245,6 +3372,7 @@ connections:
 - [virtual_source_5, '0', digital_scrambler_bb_0_0_0, '0']
 - [virtual_source_6, '0', blocks_tagged_stream_multiply_length_0, '0']
 - [virtual_source_7, '0', blocks_selector_0, '1']
+- [virtual_source_8, '0', blocks_selector_0, '2']
 
 metadata:
   file_format: 1
