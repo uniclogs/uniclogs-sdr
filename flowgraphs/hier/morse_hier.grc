@@ -69,18 +69,6 @@ blocks:
     coordinate: [952, 12.0]
     rotation: 0
     state: enabled
-- name: sym_rate
-  id: variable
-  parameters:
-    comment: ''
-    value: '300'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1072, 12.0]
-    rotation: 0
-    state: disabled
 - name: blocks_float_to_complex_0_0
   id: blocks_float_to_complex
   parameters:
@@ -408,7 +396,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1408, 296.0]
+    coordinate: [784, 332.0]
     rotation: 0
     state: disabled
 - name: qtgui_waterfall_sink_x_0_0
@@ -469,7 +457,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1616, 296.0]
+    coordinate: [992, 332.0]
     rotation: 0
     state: disabled
 - name: rf_samp_rate
