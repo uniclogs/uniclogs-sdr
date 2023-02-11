@@ -159,8 +159,8 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    fn: 'lambda x: x if all(x[:int(len(starts_with)/2)] == list(bytes.fromhex(starts_with)))
-      else x[:0]'
+    fn: 'lambda x: x if (len(x) >= len(starts_with)/2 and all(x[:int(len(starts_with)/2)]
+      == list(bytes.fromhex(starts_with)))) else x[:0]'
     key: pmt.intern("key")
     maxoutbuf: '0'
     metadict: Uniform Vector
