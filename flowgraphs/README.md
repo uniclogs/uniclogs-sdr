@@ -4,7 +4,7 @@
 cp OreSat0.cfg-dist OreSat0.cfg
 grcc -u hier/*.grc
 grcc OreSat0.grc
-./OreSat0.grc
+./OreSat0.py
 ```
 
 * See ```./OreSat0.py -h``` for available arguments.
