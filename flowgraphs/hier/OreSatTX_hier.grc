@@ -144,8 +144,8 @@ blocks:
     length_tag_name: packet_len
     maxoutbuf: '0'
     minoutbuf: '0'
-    post_padding: 16*1024
-    pre_padding: 16*1024
+    post_padding: 32*1024
+    pre_padding: 10
     type: complex
     window: firdes.window(window.WIN_HANN, 50, 0)
   states:
