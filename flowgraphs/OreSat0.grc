@@ -120,7 +120,7 @@ blocks:
     coordinate: [64, 2388.0]
     rotation: 0
     state: true
-- name: morse_callsign
+- name: morse_call
   id: variable_config
   parameters:
     comment: ''
@@ -1575,7 +1575,7 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    fn: 'lambda x: pmt.intern(morse_callsign)'
+    fn: 'lambda x: pmt.intern(morse_call)'
     key: pmt.intern("key")
     maxoutbuf: '0'
     metadict: Raw Message
