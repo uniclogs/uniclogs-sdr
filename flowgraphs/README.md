@@ -1,5 +1,5 @@
 # Quick Start
-
+Assuming you already have GNURadio installed and the necessary OOT modules, then this is all you need to start running OreSat0.py:
 ```bash
 cp OreSat0.cfg-dist OreSat0.cfg
 grcc -u hier/*.grc
@@ -36,6 +36,23 @@ xxd -r -p <<<c4f53822000900e501 | nc -cu 127.0.0.1 10025
 * gr-satellites
 * gr-osmosdr | gr-limesdr
 * [gr-gpredict-doppler](https://github.com/ghostop14/gr-gpredict-doppler) (optional)
+
+## Basic setup starting from a fresh install of Ubuntu Server 22.04.2 LTS
+```bash
+sudo apt install gnuradio gr-satellites gr-osmosdr cmake && volk_profile
+git clone https://github.com/ghostop14/gr-gpredict-doppler
+mkdir gr-gpredict-doppler/build
+cd gr-gpredict-doppler/build/
+cmake ..
+make
+sudo make install
+cd -
+git clone -b maint-3.10 https://github.com/uniclogs/uniclogs-sdr.git
+cd uniclogs-sdr/flowgraphs/
+cp OreSat0.cfg-dist OreSat0.cfg
+grcc -u hier/*.grc
+grcc OreSat0.grc
+```
 
 ## GPredict
 If you don't want to use GPredict for doppler correction, you can disable 5 blocks in the OreSat0.grc flowgraph rather than installing gr-gpredict. After opening the flowgraph with `gnuradio-companion OreSat0.grc`, look for and disable the 2 "GPredict Doppler" blocks and the 3 "Message Pair to Var" blocks connected to them.
