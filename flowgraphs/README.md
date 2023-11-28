@@ -39,7 +39,7 @@ xxd -r -p <<<c4f53822000900e501 | nc -cu 127.0.0.1 10025
 
 ## Basic setup starting from a fresh install of Ubuntu Server 22.04.2 LTS
 ```bash
-sudo apt install gnuradio gr-satellites gr-osmosdr cmake && volk_profile
+sudo apt install gnuradio gr-satellites gr-osmosdr cmake rtl-sdr hackrf && volk_profile
 git clone https://github.com/ghostop14/gr-gpredict-doppler
 mkdir gr-gpredict-doppler/build
 cd gr-gpredict-doppler/build/
