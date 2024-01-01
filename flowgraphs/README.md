@@ -1,9 +1,9 @@
 # Quick Start
 Assuming you already have GNURadio installed and the necessary OOT modules, then this is all you need to start running OreSat0.py:
 ```bash
-cp OreSat0.cfg-dist OreSat0.cfg
-grcc -u hier/*.grc
-grcc OreSat0.grc
+git clone https://github.com/uniclogs/uniclogs-sdr.git
+cd uniclogs-sdr/flowgraphs/
+make
 ./OreSat0.py
 ```
 
@@ -47,11 +47,9 @@ cmake ..
 make
 sudo make install
 cd -
-git clone -b maint-3.10 https://github.com/uniclogs/uniclogs-sdr.git
+git clone https://github.com/uniclogs/uniclogs-sdr.git
 cd uniclogs-sdr/flowgraphs/
-cp OreSat0.cfg-dist OreSat0.cfg
-grcc -u hier/*.grc
-grcc OreSat0.grc
+make
 ```
 
 ## GPredict

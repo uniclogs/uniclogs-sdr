@@ -1,0 +1,11 @@
+--- OreSat0.py  2023-12-10 18:11:36.845929768 -0800
++++ OreSat0-presysupdate.py     2023-05-09 03:17:12.101785999 -0700
+@@ -431,7 +429,7 @@
+ 
+     def set_tx_selector(self, tx_selector):
+         self.tx_selector = tx_selector
+-        self.blocks_selector_0.set_input_index(tx_selector_options.index(self.tx_selector))
++        self.blocks_selector_0.set_input_index(self.tx_selector_options.index(self.tx_selector))
+ 
+     def get_txband(self):
+         return self.txband
