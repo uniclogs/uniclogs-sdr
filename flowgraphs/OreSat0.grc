@@ -517,7 +517,7 @@ blocks:
     minoutbuf: '0'
     samp_rate: rf_samp_rate
     sps: samples_per_symbol
-    starts_with: c4f530
+    starts_with: 23af0c
   states:
     bus_sink: false
     bus_source: false
