@@ -54,7 +54,7 @@ blocks:
     label: Bit Rate
     short_id: ''
     type: intx
-    value: '9600'
+    value: '60000'
   states:
     bus_sink: false
     bus_source: false
