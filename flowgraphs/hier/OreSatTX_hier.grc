@@ -81,25 +81,6 @@ blocks:
     coordinate: [264, 448.0]
     rotation: 0
     state: enabled
-- name: blocks_unpacked_to_packed_xx_0_0_0_0
-  id: blocks_unpacked_to_packed_xx
-  parameters:
-    affinity: ''
-    alias: ''
-    bits_per_chunk: '1'
-    comment: ''
-    endianness: gr.GR_MSB_FIRST
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_ports: '1'
-    type: byte
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [536, 276.0]
-    rotation: 0
-    state: enabled
 - name: bt
   id: parameter
   parameters:
@@ -432,7 +413,6 @@ blocks:
 
 connections:
 - [blocks_tagged_stream_multiply_length_0_0, '0', digital_burst_shaper_xx_0_0, '0']
-- [blocks_unpacked_to_packed_xx_0_0_0_0, '0', digital_gfsk_mod_0_0_0_0, '0']
 - [digital_burst_shaper_xx_0_0, '0', rational_resampler_xxx_2_0_0_0_0_0, '0']
 - [digital_gfsk_mod_0_0_0_0, '0', virtual_sink_6_0, '0']
 - [digital_scrambler_bb_0_0_0_0, '0', satellites_nrzi_encode_0_0_0_0, '0']
@@ -442,7 +422,7 @@ connections:
 - [pdu_pdu_to_tagged_stream_0_0_0_0, '0', virtual_sink_5_0, '0']
 - [rational_resampler_xxx_2_0_0_0_0_0, '0', low_pass_filter_0_0_0_0, '0']
 - [satellites_hdlc_framer_0_0_0_0, out, pdu_pdu_to_tagged_stream_0_0_0_0, pdus]
-- [satellites_nrzi_encode_0_0_0_0, '0', blocks_unpacked_to_packed_xx_0_0_0_0, '0']
+- [satellites_nrzi_encode_0_0_0_0, '0', digital_gfsk_mod_0_0_0_0, '0']
 - [virtual_source_5_0, '0', digital_scrambler_bb_0_0_0_0, '0']
 - [virtual_source_6_0, '0', blocks_tagged_stream_multiply_length_0_0, '0']
 
