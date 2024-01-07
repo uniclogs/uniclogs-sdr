@@ -76,7 +76,7 @@ blocks:
       carrier in the Rx
 
       bandwidth'
-    value: rf_samp_rate/4
+    value: rx_samp_rate/4
   states:
     bus_sink: false
     bus_source: false
@@ -137,23 +137,6 @@ blocks:
     coordinate: [496, 3108.0]
     rotation: 0
     state: enabled
-- name: rf_samp_rate
-  id: variable_config
-  parameters:
-    comment: ''
-    config_file: conf
-    option: rf_samp_rate
-    section: main
-    type: real
-    value: 1.92e6
-    writeback: None
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [64, 3108.0]
-    rotation: 0
-    state: true
 - name: rx_beacon_bit_rate
   id: variable_config
   parameters:
@@ -209,6 +192,23 @@ blocks:
     coordinate: [592, 104.0]
     rotation: 0
     state: disabled
+- name: rx_samp_rate
+  id: variable_config
+  parameters:
+    comment: ''
+    config_file: conf
+    option: sample_rate
+    section: rx
+    type: real
+    value: 1.92e6
+    writeback: None
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [64, 3108.0]
+    rotation: 0
+    state: true
 - name: rx_target_frequency
   id: variable_config
   parameters:
@@ -463,6 +463,23 @@ blocks:
     coordinate: [816, 92.0]
     rotation: 0
     state: disabled
+- name: tx_samp_rate
+  id: variable_config
+  parameters:
+    comment: ''
+    config_file: conf
+    option: sample_rate
+    section: main
+    type: real
+    value: 2e6
+    writeback: None
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [808, 3380.0]
+    rotation: 0
+    state: true
 - name: tx_selector_options
   id: variable
   parameters:
@@ -496,7 +513,7 @@ blocks:
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    samp_rate: rf_samp_rate
+    samp_rate: rx_samp_rate
     sps: samples_per_symbol
     starts_with: a6a082868a406096946ea682a8
   states:
@@ -515,7 +532,7 @@ blocks:
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    samp_rate: rf_samp_rate
+    samp_rate: rx_samp_rate
     sps: samples_per_symbol
     starts_with: 23af0c
   states:
@@ -536,7 +553,7 @@ blocks:
     deviation: tx_deviation
     maxoutbuf: '0'
     minoutbuf: '0'
-    samp_rate: rf_samp_rate
+    samp_rate: tx_samp_rate
     sps: samples_per_symbol
   states:
     bus_sink: false
@@ -576,7 +593,7 @@ blocks:
     minoutbuf: '0'
     offset: '0'
     phase: '0'
-    samp_rate: rf_samp_rate
+    samp_rate: rx_samp_rate
     type: complex
     waveform: analog.GR_COS_WAVE
   states:
@@ -598,7 +615,7 @@ blocks:
     minoutbuf: '0'
     offset: '0'
     phase: '0'
-    samp_rate: rf_samp_rate
+    samp_rate: tx_samp_rate
     type: complex
     waveform: analog.GR_COS_WAVE
   states:
@@ -620,7 +637,7 @@ blocks:
     minoutbuf: '0'
     offset: '0'
     phase: '0'
-    samp_rate: rf_samp_rate
+    samp_rate: tx_samp_rate
     type: complex
     waveform: analog.GR_COS_WAVE
   states:
@@ -1072,8 +1089,8 @@ blocks:
     channel_mode: tx_channel
     comment: ''
     dacVal: '180'
-    digital_bandw_ch0: rf_samp_rate
-    digital_bandw_ch1: rf_samp_rate
+    digital_bandw_ch0: tx_samp_rate
+    digital_bandw_ch1: tx_samp_rate
     filename: ''
     gain_dB_ch0: tx_gain*tx_ptt_switch
     gain_dB_ch1: tx_gain*tx_ptt_switch
@@ -1084,7 +1101,7 @@ blocks:
     pa_path_ch0: tx_path
     pa_path_ch1: tx_path
     rf_freq: tx_tune_frequency
-    samp_rate: rf_samp_rate
+    samp_rate: tx_samp_rate
     serial: ''
   states:
     bus_sink: false
@@ -1103,11 +1120,11 @@ blocks:
     analog_bandw_ch1: 1.5e6
     calibr_bandw_ch0: 2.5e6
     calibr_bandw_ch1: 2.5e6
-    channel_mode: tx_channel
+    channel_mode: '0'
     comment: ''
     dacVal: '180'
-    digital_bandw_ch0: rf_samp_rate
-    digital_bandw_ch1: rf_samp_rate
+    digital_bandw_ch0: rx_samp_rate
+    digital_bandw_ch1: rx_samp_rate
     filename: ''
     gain_dB_ch0: rx_gain
     gain_dB_ch1: rx_gain
@@ -1119,7 +1136,7 @@ blocks:
     nco_freq_ch1: '0'
     oversample: '0'
     rf_freq: rx_tune_frequency
-    samp_rate: rf_samp_rate
+    samp_rate: rx_samp_rate
     serial: ''
   states:
     bus_sink: false
@@ -1138,7 +1155,7 @@ blocks:
     minoutbuf: '0'
     morse_dpw: '50'
     morse_wpm: '20'
-    rf_samp_rate: rf_samp_rate
+    rf_samp_rate: tx_samp_rate
     verbose: 'True'
   states:
     bus_sink: false
@@ -1551,7 +1568,7 @@ blocks:
     minoutbuf: '0'
     nchan: '1'
     num_mboards: '1'
-    sample_rate: rf_samp_rate
+    sample_rate: tx_samp_rate
     sync: sync
     time_source0: ''
     time_source1: ''
@@ -1674,7 +1691,7 @@ blocks:
     autoscale: 'False'
     average: '1.0'
     axislabels: 'True'
-    bw: rf_samp_rate
+    bw: tx_samp_rate
     color1: '"blue"'
     color10: '"dark blue"'
     color2: '"red"'
@@ -1755,7 +1772,7 @@ blocks:
     autoscale: 'False'
     average: '1.0'
     axislabels: 'True'
-    bw: rf_samp_rate
+    bw: rx_samp_rate
     color1: '"blue"'
     color10: '"dark blue"'
     color2: '"red"'
@@ -2157,7 +2174,7 @@ blocks:
     minoutbuf: '0'
     nchan: '1'
     num_mboards: '1'
-    sample_rate: rf_samp_rate
+    sample_rate: rx_samp_rate
     sync: sync
     time_source0: ''
     time_source1: ''
