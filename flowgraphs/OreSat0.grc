@@ -142,6 +142,23 @@ blocks:
     coordinate: [528, 2476.0]
     rotation: 0
     state: true
+- name: main_sps
+  id: variable_config
+  parameters:
+    comment: ''
+    config_file: conf
+    option: samples_per_symbol
+    section: main
+    type: int
+    value: '4'
+    writeback: None
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [368, 3108.0]
+    rotation: 0
+    state: true
 - name: morse_bump
   id: variable
   parameters:
@@ -272,23 +289,6 @@ blocks:
     coordinate: [176, 1300.0]
     rotation: 0
     state: enabled
-- name: samples_per_symbol
-  id: variable_config
-  parameters:
-    comment: ''
-    config_file: conf
-    option: samples_per_symbol
-    section: main
-    type: int
-    value: '4'
-    writeback: None
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [368, 3108.0]
-    rotation: 0
-    state: true
 - name: tx_bit_rate
   id: variable_config
   parameters:
@@ -531,7 +531,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     samp_rate: rx_samp_rate
-    sps: samples_per_symbol
+    sps: main_sps
     starts_with: a6a082868a406096946ea682a8
   states:
     bus_sink: false
@@ -550,7 +550,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     samp_rate: rx_samp_rate
-    sps: samples_per_symbol
+    sps: main_sps
     starts_with: 23af0c
   states:
     bus_sink: false
@@ -571,7 +571,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     samp_rate: tx_samp_rate
-    sps: samples_per_symbol
+    sps: main_sps
   states:
     bus_sink: false
     bus_source: false
