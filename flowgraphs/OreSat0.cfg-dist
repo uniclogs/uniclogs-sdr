@@ -1,5 +1,6 @@
 [main]
 telemetry_host=localhost
+command_host=localhost
 tx_sample_rate=2e6
 samples_per_symbol=4
 morse_callsign=KJ7SAT

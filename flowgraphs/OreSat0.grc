@@ -68,6 +68,40 @@ blocks:
     coordinate: [696, 2476.0]
     rotation: 0
     state: true
+- name: beacon_host
+  id: variable_config
+  parameters:
+    comment: ''
+    config_file: conf
+    option: telemetry_host
+    section: main
+    type: string
+    value: localhost
+    writeback: None
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [216, 3108.0]
+    rotation: 0
+    state: true
+- name: edl_host
+  id: variable_config
+  parameters:
+    comment: ''
+    config_file: conf
+    option: command_host
+    section: main
+    type: string
+    value: localhost
+    writeback: None
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [64, 3108.0]
+    rotation: 0
+    state: true
 - name: f_offset
   id: variable
   parameters:
@@ -134,7 +168,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [496, 3108.0]
+    coordinate: [536, 3108.0]
     rotation: 0
     state: enabled
 - name: rx_beacon_bit_rate
@@ -151,7 +185,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [208, 3244.0]
+    coordinate: [216, 3244.0]
     rotation: 0
     state: true
 - name: rx_edl_bit_rate
@@ -168,7 +202,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [344, 3244.0]
+    coordinate: [352, 3244.0]
     rotation: 0
     state: true
 - name: rx_gain
@@ -206,7 +240,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [64, 3108.0]
+    coordinate: [472, 3244.0]
     rotation: 0
     state: true
 - name: rx_target_frequency
@@ -252,24 +286,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [336, 3108.0]
-    rotation: 0
-    state: true
-- name: telemetry_host
-  id: variable_config
-  parameters:
-    comment: ''
-    config_file: conf
-    option: telemetry_host
-    section: main
-    type: string
-    value: localhost
-    writeback: None
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [192, 3108.0]
+    coordinate: [368, 3108.0]
     rotation: 0
     state: true
 - name: tx_bit_rate
@@ -1187,7 +1204,7 @@ blocks:
     affinity: ''
     alias: ''
     comment: Received APRS beacon
-    host: telemetry_host
+    host: beacon_host
     maxoutbuf: '0'
     minoutbuf: '0'
     mtu: '10000'
@@ -1227,7 +1244,7 @@ blocks:
     affinity: ''
     alias: ''
     comment: Received EDL response
-    host: telemetry_host
+    host: edl_host
     maxoutbuf: '0'
     minoutbuf: '0'
     mtu: '10000'
