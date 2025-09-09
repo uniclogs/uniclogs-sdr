@@ -26,8 +26,8 @@ OreSat0.py: OreSat0.grc
 
 .PHONY: clean
 clean:
-	rm OreSat0.py
+	rm -f OreSat05.py
 
 .PHONY: distclean
 distclean: clean
-	rm OreSat0.cfg
+	rm -f OreSat05.cfg
