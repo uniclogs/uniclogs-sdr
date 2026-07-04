@@ -46,7 +46,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [560, 440.0]
+    coordinate: [552, 440.0]
     rotation: 0
     state: enabled
 - name: beacon_host
@@ -65,7 +65,7 @@ blocks:
     bus_structure: null
     coordinate: [600, 12.0]
     rotation: 0
-    state: true
+    state: disabled
 - name: device_serial
   id: variable_config
   parameters:
@@ -80,21 +80,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [752, 12.0]
+    coordinate: [736, 12.0]
     rotation: 0
     state: true
-- name: edl_filt_decimation
-  id: variable
-  parameters:
-    comment: ''
-    value: '2'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [544, 720.0]
-    rotation: 0
-    state: enabled
 - name: edl_host
   id: variable_config
   parameters:
@@ -111,7 +99,7 @@ blocks:
     bus_structure: null
     coordinate: [448, 12.0]
     rotation: 0
-    state: true
+    state: disabled
 - name: f_offset
   id: variable
   parameters:
@@ -125,19 +113,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [16, 528.0]
-    rotation: 0
-    state: enabled
-- name: gpredict_rx_frequency
-  id: variable
-  parameters:
-    comment: ''
-    value: rx_target_frequency
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [336, 824.0]
+    coordinate: [40, 432.0]
     rotation: 0
     state: enabled
 - name: gpredict_tx_frequency
@@ -149,31 +125,19 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1800, 1784.0]
+    coordinate: [888, 1168.0]
     rotation: 0
     state: enabled
 - name: header_format
   id: variable
   parameters:
     comment: ''
-    value: digital.header_format_default(preamble, 0)
+    value: digital.header_format_default(sfd_phr, 0)
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1080, 1000.0]
-    rotation: 0
-    state: enabled
-- name: morse_ident
-  id: variable
-  parameters:
-    comment: ''
-    value: None
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [640, 2400.0]
+    coordinate: [1120, 440.0]
     rotation: 0
     state: enabled
 - name: preamble
@@ -185,10 +149,22 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [904, 1000.0]
+    coordinate: [944, 440.0]
     rotation: 0
     state: enabled
-- name: rx_beacon_bit_rate
+- name: preamble_0
+  id: variable
+  parameters:
+    comment: ''
+    value: '"0101010101010101"'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1120, 512.0]
+    rotation: 0
+    state: enabled
+- name: rx_bit_rate
   id: variable_config
   parameters:
     comment: ''
@@ -196,30 +172,13 @@ blocks:
     option: bit_rate
     section: rx_beacon
     type: int
-    value: '9600'
+    value: '50000'
     writeback: None
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
     coordinate: [448, 172.0]
-    rotation: 0
-    state: true
-- name: rx_edl_bit_rate
-  id: variable_config
-  parameters:
-    comment: ''
-    config_file: conf
-    option: bit_rate
-    section: rx_edl
-    type: int
-    value: '96000'
-    writeback: None
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [584, 172.0]
     rotation: 0
     state: true
 - name: rx_gain
@@ -265,7 +224,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [704, 336.0]
+    coordinate: [712, 440.0]
     rotation: 0
     state: enabled
 - name: rx_samp_rate
@@ -317,7 +276,19 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [104, 528.0]
+    coordinate: [128, 432.0]
+    rotation: 0
+    state: enabled
+- name: rx_tune_frequency_0
+  id: variable
+  parameters:
+    comment: ''
+    value: rx_target_frequency - f_offset
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [568, 176.0]
     rotation: 0
     state: enabled
 - name: sfd_phr
@@ -329,7 +300,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [904, 1072.0]
+    coordinate: [944, 512.0]
     rotation: 0
     state: enabled
 - name: tx_bit_rate
@@ -346,7 +317,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [984, 12.0]
+    coordinate: [152, 1092.0]
     rotation: 0
     state: true
 - name: tx_bt
@@ -358,7 +329,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1144, 1784.0]
+    coordinate: [544, 1168.0]
     rotation: 0
     state: enabled
 - name: tx_center_frequency
@@ -375,7 +346,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1104, 12.0]
+    coordinate: [272, 1092.0]
     rotation: 0
     state: true
 - name: tx_lo_offset
@@ -389,7 +360,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1960, 1784.0]
+    coordinate: [1048, 1168.0]
     rotation: 0
     state: enabled
 - name: tx_samp_per_sym
@@ -401,7 +372,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1224, 1784.0]
+    coordinate: [624, 1168.0]
     rotation: 0
     state: enabled
 - name: tx_samp_rate
@@ -413,7 +384,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1344, 1784.0]
+    coordinate: [744, 1168.0]
     rotation: 0
     state: enabled
 - name: analog_sig_source_x_0_1_0
@@ -436,47 +407,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1632, 1916.0]
+    coordinate: [376, 1328.0]
     rotation: 0
     state: disabled
-- name: blocks_file_sink_0
-  id: blocks_file_sink
-  parameters:
-    affinity: ''
-    alias: ''
-    append: 'False'
-    comment: 'Will generate empty file
-
-      when not in use'
-    file: rx_iq_data_filename
-    type: complex
-    unbuffered: 'False'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [40, 320.0]
-    rotation: 180
-    state: disabled
-- name: blocks_file_sink_1
-  id: blocks_file_sink
-  parameters:
-    affinity: ''
-    alias: ''
-    append: 'False'
-    comment: ''
-    file: file_sink
-    type: byte
-    unbuffered: 'False'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1488, 1240.0]
-    rotation: 0
-    state: enabled
 - name: blocks_freqshift_cc_0
   id: blocks_freqshift_cc
   parameters:
@@ -491,90 +424,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [2128, 2104.0]
-    rotation: 0
-    state: disabled
-- name: blocks_freqshift_cc_1
-  id: blocks_freqshift_cc
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: 'Doppler Correction and
-
-      LO offset'
-    freq: rx_tune_frequency - gpredict_rx_frequency
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    sample_rate: rx_samp_rate
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [336, 688.0]
-    rotation: 0
-    state: disabled
-- name: blocks_freqshift_cc_1_0
-  id: blocks_freqshift_cc
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: 'Doppler Correction and
-
-      LO offset'
-    freq: rx_tune_frequency - gpredict_rx_frequency
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    sample_rate: rx_samp_rate
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [256, 1192.0]
-    rotation: 0
-    state: enabled
-- name: blocks_message_debug_0
-  id: blocks_message_debug
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: Recovered APRS
-    en_uvec: 'True'
-    log_level: info
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [2128, 320.0]
-    rotation: 0
-    state: disabled
-- name: blocks_message_debug_0_0
-  id: blocks_message_debug
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: Recovered EDL
-    en_uvec: 'True'
-    log_level: info
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [2144, 616.0]
-    rotation: 0
-    state: disabled
-- name: blocks_message_debug_0_0_0_0_0_0_1_0
-  id: blocks_message_debug
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    en_uvec: 'True'
-    log_level: info
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [520, 1952.0]
+    coordinate: [872, 1512.0]
     rotation: 0
     state: disabled
 - name: blocks_message_debug_1
@@ -589,26 +439,24 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [2720, 1888.0]
+    coordinate: [1464, 1296.0]
     rotation: 0
     state: disabled
-- name: blocks_null_sink_1
-  id: blocks_null_sink
+- name: blocks_message_debug_1_0
+  id: blocks_message_debug
   parameters:
     affinity: ''
     alias: ''
-    bus_structure_sink: '[[0,],]'
     comment: ''
-    num_inputs: '1'
-    type: complex
-    vlen: '1'
+    en_uvec: 'True'
+    log_level: info
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [48, 264.0]
-    rotation: 180
-    state: disabled
+    coordinate: [1832, 360.0]
+    rotation: 0
+    state: enabled
 - name: blocks_selector_0
   id: blocks_selector
   parameters:
@@ -629,35 +477,8 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1928, 2080.0]
+    coordinate: [672, 1488.0]
     rotation: 0
-    state: disabled
-- name: blocks_selector_1
-  id: blocks_selector
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: 'Mutes IQ data (does not
-
-      save to file) if filename is
-
-      blank'
-    enabled: 'True'
-    input_index: '0'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_inputs: '1'
-    num_outputs: '2'
-    output_index: int(rx_iq_data_filename != 'delete_me.iq')
-    showports: 'True'
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [280, 392.0]
-    rotation: 180
     state: disabled
 - name: blocks_tag_debug_0
   id: blocks_tag_debug
@@ -675,7 +496,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [2376, 2208.0]
+    coordinate: [1120, 1616.0]
     rotation: 0
     state: disabled
 - name: blocks_tagged_stream_multiply_length_0_0
@@ -694,9 +515,30 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1632, 2104.0]
+    coordinate: [376, 1512.0]
     rotation: 0
     state: disabled
+- name: blocks_throttle2_0
+  id: blocks_throttle2
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    ignoretag: 'True'
+    limit: auto
+    maximum: '0.1'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samples_per_second: rx_samp_rate
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [248, 760.0]
+    rotation: 0
+    state: enabled
 - name: blocks_uchar_to_float_0
   id: blocks_uchar_to_float
   parameters:
@@ -709,26 +551,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1488, 1360.0]
+    coordinate: [1200, 896.0]
     rotation: 0
     state: enabled
-- name: blocks_var_to_msg_0
-  id: blocks_var_to_msg
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    msgname: ''
-    target: morse_ident
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [624, 2264.0]
-    rotation: 0
-    state: disabled
 - name: conf
   id: parameter
   parameters:
@@ -746,48 +571,10 @@ blocks:
     coordinate: [328, 12.0]
     rotation: 0
     state: true
-- name: digital_correlate_access_code_tag_xx_0
-  id: digital_correlate_access_code_tag_xx
-  parameters:
-    access_code: '101010'
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    tagname: ''
-    threshold: ''
-    type: byte
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1256, 552.0]
-    rotation: 0
-    state: disabled
-- name: digital_correlate_access_code_tag_xx_0_0
-  id: digital_correlate_access_code_tag_xx
-  parameters:
-    access_code: '101010'
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    tagname: ''
-    threshold: ''
-    type: byte
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1504, 552.0]
-    rotation: 0
-    state: disabled
 - name: digital_correlate_access_code_tag_xx_1
   id: digital_correlate_access_code_tag_xx
   parameters:
-    access_code: preamble
+    access_code: preamble_0
     affinity: ''
     alias: ''
     comment: ''
@@ -800,55 +587,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1120, 1184.0]
+    coordinate: [888, 752.0]
     rotation: 0
     state: enabled
-- name: digital_gfsk_demod_0_0
-  id: digital_gfsk_demod
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: "Sensitivity from \ntextbook (whch ???)"
-    freq_error: '0.0'
-    gain_mu: '0.175'
-    log: 'False'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    mu: '0.5'
-    omega_relative_limit: '0.0002'
-    samples_per_symbol: rx_samp_per_sym
-    sensitivity: 2 * rx_samp_per_sym / np.pi
-    verbose: 'False'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1008, 524.0]
-    rotation: 0
-    state: disabled
-- name: digital_gfsk_demod_0_0_0
-  id: digital_gfsk_demod
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: "Sensitivity from \ntextbook (whch ???)"
-    freq_error: '0.0'
-    gain_mu: '0.175'
-    log: 'False'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    mu: '0.5'
-    omega_relative_limit: '0.0002'
-    samples_per_symbol: rx_samp_per_sym
-    sensitivity: 2 * rx_samp_per_sym / np.pi
-    verbose: 'False'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1008, 796.0]
-    rotation: 0
-    state: disabled
 - name: digital_gfsk_demod_0_0_1
   id: digital_gfsk_demod
   parameters:
@@ -869,7 +610,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [864, 1156.0]
+    coordinate: [640, 728.0]
     rotation: 0
     state: enabled
 - name: digital_gmsk_mod_0
@@ -889,25 +630,44 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1392, 2080.0]
+    coordinate: [136, 1488.0]
     rotation: 0
     state: disabled
-- name: digital_packet_headerparser_b_0
-  id: digital_packet_headerparser_b
+- name: epy_block_0
+  id: epy_block
   parameters:
+    _source_code: "\"\"\"\nEmbedded Python Blocks:\n\nEach time this file is saved,\
+      \ GRC will instantiate the first class it finds\nto get ports and parameters\
+      \ of your block. The arguments to __init__  will\nbe the parameters. All of\
+      \ them are required to have default values!\n\"\"\"\n\nimport numpy as np\n\
+      from gnuradio import gr\n\n\nclass blk(gr.sync_block):  # other base classes\
+      \ are basic_block, decim_block, interp_block\n    \"\"\"Embedded Python Block\
+      \ example - a simple multiply const\"\"\"\n\n    def __init__(self, example_param=1.0):\n\
+      \        \"\"\"arguments to this function show up as parameters in GRC\"\"\"\
+      \n        gr.sync_block.__init__(\n            self,\n            name='Embedded\
+      \ Python Block',   # will show up in GRC\n            in_sig=[np.complex64],\n\
+      \            out_sig=[np.complex64]\n        )\n        # if an attribute with\
+      \ the same name as a parameter is found,\n        # a callback is registered\
+      \ (properties work, too).\n        self.example_param = example_param\n\n  \
+      \  def work(self, input_items, output_items):\n        \"\"\"example: multiply\
+      \ with constant\"\"\"\n        output_items[0][:] = input_items[0] * self.example_param\n\
+      \        return len(output_items[0])\n"
     affinity: ''
     alias: ''
     comment: ''
-    header_formatter: ''
+    example_param: '1.0'
     maxoutbuf: '0'
     minoutbuf: '0'
   states:
+    _io_cache: ('Embedded Python Block', 'blk', [('example_param', '1.0')], [('0',
+      'complex', 1)], [('0', 'complex', 1)], 'Embedded Python Block example - a simple
+      multiply const', ['example_param'])
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1256, 376.0]
+    coordinate: [1224, 624.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: iq_data
   id: blocks_file_source
   parameters:
@@ -915,73 +675,21 @@ blocks:
     alias: ''
     begin_tag: pmt.PMT_NIL
     comment: ''
-    file: /home/ha/PSAS/uniclogs-sdr/flowgraphs/ESI-IQ_AT86_data/beacon_only.cf32
+    file: /home/ha/Projects/PSAS/uniclogs-sdr/flowgraphs/esi_rawiq/beacon_only.cf32
     length: '32095320'
     maxoutbuf: '0'
     minoutbuf: '0'
     offset: '0'
-    repeat: 'False'
+    repeat: 'True'
     type: complex
     vlen: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [32, 1168.0]
+    coordinate: [16, 736.0]
     rotation: 0
     state: enabled
-- name: low_pass_filter_0_0
-  id: low_pass_filter
-  parameters:
-    affinity: ''
-    alias: ''
-    beta: '6.76'
-    comment: 'Also does some
-
-      pre-decimation'
-    cutoff_freq: rx_beacon_bit_rate*1.5
-    decim: beacon_filt_decimation
-    gain: '1'
-    interp: '1'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    samp_rate: rx_samp_rate
-    type: fir_filter_ccf
-    width: rx_beacon_bit_rate*0.75
-    win: window.WIN_HAMMING
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [560, 524.0]
-    rotation: 0
-    state: disabled
-- name: low_pass_filter_0_0_0
-  id: low_pass_filter
-  parameters:
-    affinity: ''
-    alias: ''
-    beta: '6.76'
-    comment: 'Also does some
-
-      pre-decimation'
-    cutoff_freq: rx_edl_bit_rate*1.5
-    decim: edl_filt_decimation
-    gain: '1'
-    interp: '1'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    samp_rate: rx_samp_rate
-    type: fir_filter_ccf
-    width: rx_edl_bit_rate*0.75
-    win: window.WIN_HAMMING
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [536, 796.0]
-    rotation: 0
-    state: disabled
 - name: low_pass_filter_0_0_1
   id: low_pass_filter
   parameters:
@@ -991,7 +699,7 @@ blocks:
     comment: 'Also does some
 
       pre-decimation'
-    cutoff_freq: rx_beacon_bit_rate*1.5
+    cutoff_freq: rx_bit_rate*1.5
     decim: beacon_filt_decimation
     gain: '1'
     interp: '1'
@@ -999,13 +707,13 @@ blocks:
     minoutbuf: '0'
     samp_rate: rx_samp_rate
     type: fir_filter_ccf
-    width: rx_beacon_bit_rate*0.75
+    width: rx_bit_rate*0.75
     win: window.WIN_HAMMING
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [464, 1156.0]
+    coordinate: [424, 728.0]
     rotation: 0
     state: enabled
 - name: network_socket_pdu_0
@@ -1013,61 +721,21 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    comment: Received APRS beacon
-    host: beacon_host
+    comment: ''
+    host: localhost
     maxoutbuf: '0'
     minoutbuf: '0'
     mtu: '10000'
     port: '10015'
-    tcp_no_delay: 'False'
-    type: UDP_CLIENT
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1848, 448.0]
-    rotation: 0
-    state: disabled
-- name: network_socket_pdu_0_0_0_0
-  id: network_socket_pdu
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: EDL uplink
-    host: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    mtu: '10000'
-    port: '10025'
     tcp_no_delay: 'False'
     type: UDP_SERVER
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [0, 2008.0]
+    coordinate: [1584, 552.0]
     rotation: 0
-    state: disabled
-- name: network_socket_pdu_0_1
-  id: network_socket_pdu
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: Received EDL response
-    host: edl_host
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    mtu: '10000'
-    port: '10016'
-    tcp_no_delay: 'False'
-    type: UDP_CLIENT
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1888, 696.0]
-    rotation: 0
-    state: disabled
+    state: enabled
 - name: note_0
   id: note
   parameters:
@@ -1078,33 +746,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1024, 1784.0]
-    rotation: 0
-    state: enabled
-- name: note_1
-  id: note
-  parameters:
-    alias: ''
-    comment: ''
-    note: master clock needs to be a multiple of both TX and RX sample rates
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [272, 584.0]
-    rotation: 0
-    state: enabled
-- name: note_2
-  id: note
-  parameters:
-    alias: ''
-    comment: ''
-    note: FIXME LO offset via command?
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [24, 456.0]
+    coordinate: [424, 1168.0]
     rotation: 0
     state: enabled
 - name: note_3
@@ -1117,7 +759,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [808, 440.0]
+    coordinate: [832, 440.0]
     rotation: 0
     state: enabled
 - name: note_4
@@ -1130,20 +772,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [280, 280.0]
-    rotation: 0
-    state: enabled
-- name: note_5
-  id: note
-  parameters:
-    alias: ''
-    comment: ''
-    note: EDL path
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [592, 336.0]
+    coordinate: [568, 632.0]
     rotation: 0
     state: enabled
 - name: numpy
@@ -1156,47 +785,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1256, 24.0]
+    coordinate: [176, 16.0]
     rotation: 0
     state: enabled
-- name: pdu_pdu_lambda_0
-  id: pdu_pdu_lambda
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: 'Converts morse_ident to pdu
-
-      Is there a better way?'
-    fn: 'lambda x: pmt.intern(morse_ident)'
-    key: pmt.intern("key")
-    maxoutbuf: '0'
-    metadict: Raw Message
-    minoutbuf: '0'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [888, 2272.0]
-    rotation: 0
-    state: disabled
-- name: pdu_pdu_lambda_1
-  id: pdu_pdu_lambda
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: Reverse bit order
-    fn: 'lambda x: np.packbits(np.unpackbits(x, bitorder=''little''))'
-    key: pmt.intern("key")
-    maxoutbuf: '0'
-    metadict: Uniform Vector
-    minoutbuf: '0'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [256, 2080.0]
-    rotation: 0
-    state: disabled
 - name: pdu_pdu_set_0
   id: pdu_pdu_set
   parameters:
@@ -1206,65 +797,14 @@ blocks:
     k: pmt.intern("note")
     maxoutbuf: '0'
     minoutbuf: '0'
-    v: pmt.intern("beacon")
+    v: pmt.intern("packet")
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1840, 328.0]
+    coordinate: [1584, 376.0]
     rotation: 0
-    state: disabled
-- name: pdu_pdu_set_1
-  id: pdu_pdu_set
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    k: pmt.intern("note")
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    v: pmt.intern("Received EDL")
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1880, 592.0]
-    rotation: 0
-    state: disabled
-- name: pdu_pdu_set_2
-  id: pdu_pdu_set
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    k: pmt.intern("note")
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    v: pmt.intern("EDL to send")
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [264, 1960.0]
-    rotation: 0
-    state: disabled
-- name: pdu_tagged_stream_to_pdu_0
-  id: pdu_tagged_stream_to_pdu
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    tag: ''
-    type: byte
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1480, 1160.0]
-    rotation: 0
-    state: disabled
+    state: bypassed
 - name: qtgui_freq_sink_x_0
   id: qtgui_freq_sink_x
   parameters:
@@ -1343,7 +883,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [2376, 2312.0]
+    coordinate: [1120, 1720.0]
     rotation: 0
     state: disabled
 - name: qtgui_time_sink_x_0
@@ -1440,7 +980,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [2376, 2416.0]
+    coordinate: [1120, 1824.0]
     rotation: 0
     state: disabled
 - name: qtgui_time_sink_x_1
@@ -1537,75 +1077,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1728, 1336.0]
-    rotation: 0
-    state: enabled
-- name: rational_resampler_xxx_0_0
-  id: rational_resampler_xxx
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: 'Can this just do the
-
-      low pass filtering in
-
-      one step?'
-    decim: int(rx_samp_rate)//beacon_filt_decimation
-    fbw: '0'
-    interp: rx_beacon_bit_rate * rx_samp_per_sym
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    taps: ''
-    type: ccc
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [776, 544.0]
-    rotation: 0
-    state: disabled
-- name: rational_resampler_xxx_0_0_0
-  id: rational_resampler_xxx
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    decim: int(rx_samp_rate)//edl_filt_decimation
-    fbw: '0'
-    interp: rx_edl_bit_rate * rx_samp_per_sym
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    taps: ''
-    type: ccc
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [768, 816.0]
-    rotation: 0
-    state: disabled
-- name: rational_resampler_xxx_0_0_1
-  id: rational_resampler_xxx
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: 'Can this just do the
-
-      low pass filtering in
-
-      one step?'
-    decim: int(rx_samp_rate)//beacon_filt_decimation
-    fbw: '0'
-    interp: rx_beacon_bit_rate * rx_samp_per_sym
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    taps: ''
-    type: ccc
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [656, 1176.0]
+    coordinate: [1456, 872.0]
     rotation: 0
     state: enabled
 - name: tx_gain
@@ -1622,24 +1094,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [2056, 1784.0]
-    rotation: 0
-    state: enabled
-- name: tx_selector
-  id: parameter
-  parameters:
-    alias: ''
-    comment: one of  'cw', 'edl', 'morse'
-    hide: none
-    label: startup state of TX Selector (cw, edl, morse)
-    short_id: s
-    type: str
-    value: edl
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1416, 2320.0]
+    coordinate: [1144, 1168.0]
     rotation: 0
     state: enabled
 - name: txband
@@ -1656,7 +1111,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [896, 36.0]
+    coordinate: [72, 1088.0]
     rotation: 0
     state: true
 - name: uhd_usrp_sink_0_0
@@ -1933,7 +1388,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [2392, 1972.0]
+    coordinate: [1136, 1380.0]
     rotation: 0
     state: disabled
 - name: uhd_usrp_source_0
@@ -2046,7 +1501,7 @@ blocks:
     clock_source5: ''
     clock_source6: ''
     clock_source7: ''
-    comment: From the Ettus B200mini
+    comment: ''
     dc_offs0: 0+0j
     dc_offs1: 0+0j
     dc_offs10: 0+0j
@@ -2111,9 +1566,9 @@ blocks:
     dc_offs_enb7: default
     dc_offs_enb8: default
     dc_offs_enb9: default
-    dev_addr: '"serial="+device_serial'
+    dev_addr: '""'
     dev_args: ''
-    gain0: rx_gain
+    gain0: '0'
     gain1: '0'
     gain10: '0'
     gain11: '0'
@@ -2351,11 +1806,11 @@ blocks:
     sd_spec5: ''
     sd_spec6: ''
     sd_spec7: ''
-    show_lo_controls: 'True'
+    show_lo_controls: 'False'
     start_time: '-1.0'
     stream_args: ''
     stream_chans: '[]'
-    sync: pc_clock
+    sync: none
     time_source0: ''
     time_source1: ''
     time_source2: ''
@@ -2369,23 +1824,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [64, 644.0]
+    coordinate: [72, 880.0]
     rotation: 0
     state: disabled
-- name: xmlrpc_server_0
-  id: xmlrpc_server
-  parameters:
-    addr: 0.0.0.0
-    alias: ''
-    comment: ''
-    port: '10080'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [192, 12.0]
-    rotation: 0
-    state: true
 
 connections:
 - [analog_sig_source_x_0_1_0, '0', blocks_selector_0, '0']
@@ -2393,39 +1834,20 @@ connections:
 - [blocks_freqshift_cc_0, '0', qtgui_freq_sink_x_0, '0']
 - [blocks_freqshift_cc_0, '0', qtgui_time_sink_x_0, '0']
 - [blocks_freqshift_cc_0, '0', uhd_usrp_sink_0_0, '0']
-- [blocks_freqshift_cc_1, '0', blocks_selector_1, '0']
-- [blocks_freqshift_cc_1, '0', low_pass_filter_0_0, '0']
-- [blocks_freqshift_cc_1, '0', low_pass_filter_0_0_0, '0']
-- [blocks_freqshift_cc_1_0, '0', low_pass_filter_0_0_1, '0']
 - [blocks_selector_0, '0', blocks_freqshift_cc_0, '0']
-- [blocks_selector_1, '0', blocks_null_sink_1, '0']
-- [blocks_selector_1, '1', blocks_file_sink_0, '0']
 - [blocks_tagged_stream_multiply_length_0_0, '0', blocks_selector_0, '1']
+- [blocks_throttle2_0, '0', low_pass_filter_0_0_1, '0']
 - [blocks_uchar_to_float_0, '0', qtgui_time_sink_x_1, '0']
-- [blocks_var_to_msg_0, msgout, pdu_pdu_lambda_0, pdu]
-- [digital_correlate_access_code_tag_xx_0, '0', digital_correlate_access_code_tag_xx_0_0,
-  '0']
-- [digital_correlate_access_code_tag_xx_1, '0', blocks_file_sink_1, '0']
 - [digital_correlate_access_code_tag_xx_1, '0', blocks_uchar_to_float_0, '0']
-- [digital_correlate_access_code_tag_xx_1, '0', pdu_tagged_stream_to_pdu_0, '0']
-- [digital_gfsk_demod_0_0, '0', digital_correlate_access_code_tag_xx_0, '0']
-- [digital_gfsk_demod_0_0, '0', digital_packet_headerparser_b_0, '0']
+- [digital_correlate_access_code_tag_xx_1, '0', epy_block_0, '0']
 - [digital_gfsk_demod_0_0_1, '0', digital_correlate_access_code_tag_xx_1, '0']
 - [digital_gmsk_mod_0, '0', blocks_tagged_stream_multiply_length_0_0, '0']
-- [iq_data, '0', blocks_freqshift_cc_1_0, '0']
-- [low_pass_filter_0_0, '0', rational_resampler_xxx_0_0, '0']
-- [low_pass_filter_0_0_0, '0', rational_resampler_xxx_0_0_0, '0']
-- [low_pass_filter_0_0_1, '0', rational_resampler_xxx_0_0_1, '0']
-- [network_socket_pdu_0_0_0_0, pdus, pdu_pdu_lambda_1, pdu]
-- [network_socket_pdu_0_0_0_0, pdus, pdu_pdu_set_2, pdus]
-- [pdu_pdu_set_0, pdus, blocks_message_debug_0, print]
-- [pdu_pdu_set_1, pdus, blocks_message_debug_0_0, print]
-- [pdu_pdu_set_2, pdus, blocks_message_debug_0_0_0_0_0_0_1_0, print]
-- [rational_resampler_xxx_0_0, '0', digital_gfsk_demod_0_0, '0']
-- [rational_resampler_xxx_0_0_0, '0', digital_gfsk_demod_0_0_0, '0']
-- [rational_resampler_xxx_0_0_1, '0', digital_gfsk_demod_0_0_1, '0']
+- [epy_block_0, '0', network_socket_pdu_0, pdus]
+- [epy_block_0, '0', pdu_pdu_set_0, pdus]
+- [iq_data, '0', blocks_throttle2_0, '0']
+- [low_pass_filter_0_0_1, '0', digital_gfsk_demod_0_0_1, '0']
+- [pdu_pdu_set_0, pdus, blocks_message_debug_1_0, print]
 - [uhd_usrp_sink_0_0, async_msgs, blocks_message_debug_1, print]
-- [uhd_usrp_source_0, '0', blocks_freqshift_cc_1, '0']
 
 metadata:
   file_format: 1
