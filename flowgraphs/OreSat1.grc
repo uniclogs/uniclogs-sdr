@@ -37,6 +37,30 @@ options:
     state: enabled
 
 blocks:
+- name: SFD0
+  id: variable
+  parameters:
+    comment: ''
+    value: '[0x90, 0x4e]'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1448, 176.0]
+    rotation: 0
+    state: enabled
+- name: SFD1
+  id: variable
+  parameters:
+    comment: ''
+    value: '[0x6F, 0x4e]'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1536, 176.0]
+    rotation: 0
+    state: enabled
 - name: beacon_host
   id: variable_config
   parameters:
@@ -125,10 +149,22 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1016, 944.0]
+    coordinate: [976, 944.0]
     rotation: 0
     state: enabled
-- name: rx_beacon_bit_rate
+- name: preamble
+  id: variable
+  parameters:
+    comment: ''
+    value: '[0b0101_0101]*8'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1448, 248.0]
+    rotation: 0
+    state: enabled
+- name: rx_bit_rate
   id: variable_config
   parameters:
     comment: ''
@@ -143,23 +179,6 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [480, 172.0]
-    rotation: 0
-    state: true
-- name: rx_edl_bit_rate
-  id: variable_config
-  parameters:
-    comment: ''
-    config_file: conf
-    option: bit_rate
-    section: rx_edl
-    type: int
-    value: '96000'
-    writeback: None
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [616, 172.0]
     rotation: 0
     state: true
 - name: rx_gain
@@ -205,7 +224,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [904, 424.0]
+    coordinate: [616, 344.0]
     rotation: 0
     state: enabled
 - name: rx_samp_rate
@@ -229,6 +248,23 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [888, 172.0]
+    rotation: 0
+    state: true
+- name: rx_symb_rate
+  id: variable_config
+  parameters:
+    comment: ''
+    config_file: conf
+    option: bit_rate
+    section: rx_beacon
+    type: int
+    value: '50000'
+    writeback: None
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [616, 172.0]
     rotation: 0
     state: true
 - name: rx_target_frequency
@@ -264,12 +300,12 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '20'
+    value: '10'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [720, 424.0]
+    coordinate: [544, 568.0]
     rotation: 0
     state: enabled
 - name: tx_bit_rate
@@ -280,13 +316,13 @@ blocks:
     option: bit_rate
     section: txband
     type: int
-    value: '60000'
+    value: '50000'
     writeback: None
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [752, 940.0]
+    coordinate: [712, 940.0]
     rotation: 0
     state: true
 - name: tx_bt
@@ -315,7 +351,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [872, 940.0]
+    coordinate: [832, 940.0]
     rotation: 0
     state: true
 - name: tx_lo_offset
@@ -329,7 +365,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1064, 1016.0]
+    coordinate: [1024, 1016.0]
     rotation: 0
     state: enabled
 - name: tx_samp_per_sym
@@ -356,48 +392,37 @@ blocks:
     coordinate: [512, 944.0]
     rotation: 0
     state: enabled
-- name: analog_sig_source_x_0_1_0
-  id: analog_sig_source_x
+- name: uniclogs_ieee802_15_4_variant_decoder_0
+  id: uniclogs_ieee802_15_4_variant_decoder
   parameters:
-    affinity: ''
     alias: ''
-    amp: '1'
-    comment: CW test source
-    freq: '0'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    offset: '0'
-    phase: '0'
-    samp_rate: tx_samp_rate
-    showports: 'False'
-    type: complex
-    waveform: analog.GR_COS_WAVE
+    comment: ''
+    preamble: preamble
+    preamble_thrsh: '5'
+    sync_thrsh: '1'
+    sync_word: SFD0
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [840, 1168.0]
+    coordinate: [992, 432.0]
     rotation: 0
     state: enabled
-- name: blocks_deinterleave_0
-  id: blocks_deinterleave
+- name: variable_ieee802_15_4_variable_encoder_0
+  id: variable_ieee802_15_4_variable_encoder
   parameters:
-    affinity: ''
-    alias: ''
-    blocksize: '1'
     comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_streams: '2'
-    type: byte
-    vlen: '1'
+    length_field_bytes: '2'
+    preamble: '0x55'
+    preamble_len: '8'
+    sync_word: SFD0
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1208, 560.0]
+    coordinate: [744, 1168.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: blocks_file_sink_0
   id: blocks_file_sink
   parameters:
@@ -432,7 +457,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1336, 1352.0]
+    coordinate: [1168, 1352.0]
     rotation: 0
     state: bypassed
 - name: blocks_freqshift_cc_1
@@ -454,7 +479,7 @@ blocks:
     coordinate: [336, 688.0]
     rotation: 0
     state: enabled
-- name: blocks_message_debug_0
+- name: blocks_message_debug_0_0
   id: blocks_message_debug
   parameters:
     affinity: ''
@@ -466,7 +491,22 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [2192, 528.0]
+    coordinate: [1472, 600.0]
+    rotation: 0
+    state: enabled
+- name: blocks_message_debug_0_0_0_0_0_0_1_0
+  id: blocks_message_debug
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    en_uvec: 'True'
+    log_level: info
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [480, 1128.0]
     rotation: 0
     state: enabled
 - name: blocks_message_debug_1
@@ -481,7 +521,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [2784, 1048.0]
+    coordinate: [1712, 1216.0]
     rotation: 0
     state: true
 - name: blocks_null_sink_1
@@ -498,31 +538,8 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [104, 280.0]
+    coordinate: [96, 280.0]
     rotation: 180
-    state: enabled
-- name: blocks_selector_0
-  id: blocks_selector
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    enabled: 'True'
-    input_index: '[''cw'', ''edl'', ''morse''].index(tx_selector)'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_inputs: '3'
-    num_outputs: '1'
-    output_index: '0'
-    showports: 'True'
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1136, 1328.0]
-    rotation: 0
     state: enabled
 - name: blocks_selector_1
   id: blocks_selector
@@ -551,44 +568,6 @@ blocks:
     coordinate: [280, 352.0]
     rotation: 180
     state: enabled
-- name: blocks_tag_debug_0
-  id: blocks_tag_debug
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    display: 'True'
-    filter: '""'
-    name: ''
-    num_inputs: '1'
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1584, 1456.0]
-    rotation: 0
-    state: true
-- name: blocks_tagged_stream_multiply_length_0_0
-  id: blocks_tagged_stream_multiply_length
-  parameters:
-    affinity: ''
-    alias: ''
-    c: tx_samp_per_sym
-    comment: ''
-    lengthtagname: packet_len
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [840, 1352.0]
-    rotation: 0
-    state: enabled
 - name: conf
   id: parameter
   parameters:
@@ -606,66 +585,51 @@ blocks:
     coordinate: [352, 8.0]
     rotation: 0
     state: true
-- name: digital_correlate_access_code_tag_xx_0
-  id: digital_correlate_access_code_tag_xx
+- name: digital_crc_append_0
+  id: digital_crc_append
   parameters:
-    access_code: '101010'
     affinity: ''
     alias: ''
     comment: ''
+    final_xor: '0xFFFFFFFF'
+    initial_value: '0xFFFFFFFF'
+    input_reflected: 'True'
     maxoutbuf: '0'
     minoutbuf: '0'
-    tagname: ''
-    threshold: ''
-    type: byte
+    num_bits: '32'
+    poly: '0x4C11DB7'
+    result_reflected: 'True'
+    skip_header_bytes: '0'
+    swap_endianness: 'False'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1064, 680.0]
+    coordinate: [240, 1360.0]
     rotation: 0
     state: enabled
-- name: digital_descrambler_bb_0_0
-  id: digital_descrambler_bb
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: 'https://destevez.net/2016/05/
-
-      scramblers-and-their-implementation-in-gnuradio/'
-    len: '30'
-    mask: '0x0021'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    seed: '0xFFFF'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1048, 552.0]
-    rotation: 0
-    state: disabled
-- name: digital_gfsk_demod_0_0_0
+- name: digital_gfsk_demod_0_0_1
   id: digital_gfsk_demod
   parameters:
     affinity: ''
     alias: ''
-    comment: "Sensitivity from \ntextbook (whch ???)"
+    comment: "Sensitivity from \ntextbook (whch ???)\n\nold gain is 0.175\n(2 * rx_samp_per_sym)\
+      \ / np.pi"
     freq_error: '0.0'
     gain_mu: '0.175'
-    log: 'False'
+    log: 'True'
     maxoutbuf: '0'
     minoutbuf: '0'
     mu: '0.5'
     omega_relative_limit: '0.0002'
-    samples_per_symbol: rx_samp_per_sym
-    sensitivity: 2 * rx_samp_per_sym / np.pi
-    verbose: 'False'
+    samples_per_symbol: '4'
+    sensitivity: rx_samp_rate / (2*np.pi*rx_symb_rate)
+    verbose: 'True'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [808, 656.0]
+    coordinate: [752, 636.0]
     rotation: 0
     state: enabled
 - name: digital_gmsk_mod_0
@@ -685,67 +649,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [600, 1328.0]
+    coordinate: [968, 1344.0]
     rotation: 0
     state: enabled
-- name: digital_protocol_parser_b_0
-  id: digital_protocol_parser_b
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    format: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1328, 648.0]
-    rotation: 0
-    state: enabled
-- name: digital_scrambler_bb_0_0_0_0
-  id: digital_scrambler_bb
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: 'https://destevez.net/2016/05/
-
-      scramblers-and-their-implementation-in-gnuradio/
-
-      See also AX5043 PM Fig. 17/18'
-    len: '30'
-    mask: '0x21'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    seed: '0xFFFF'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [464, 1168.0]
-    rotation: 0
-    state: disabled
-- name: fec_tagged_decoder_0
-  id: fec_tagged_decoder
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    decoder: decoder_variable
-    itype: byte
-    lentagname: '"pkt_len"'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    mtu: '1500'
-    otype: byte
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1352, 552.0]
-    rotation: 0
-    state: disabled
 - name: import_0
   id: import
   parameters:
@@ -756,10 +662,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1304, 8.0]
+    coordinate: [912, 16.0]
     rotation: 0
     state: enabled
-- name: low_pass_filter_0_0_0
+- name: low_pass_filter_0_0_1
   id: low_pass_filter
   parameters:
     affinity: ''
@@ -767,8 +673,8 @@ blocks:
     beta: '6.76'
     comment: 'Also does some
 
-      pre-decimation'
-    cutoff_freq: rx_edl_bit_rate*1.5
+      decimation'
+    cutoff_freq: rx_symb_rate*1.5
     decim: sample_decimation_rate
     gain: '1'
     interp: '1'
@@ -776,22 +682,22 @@ blocks:
     minoutbuf: '0'
     samp_rate: rx_samp_rate
     type: fir_filter_ccf
-    width: rx_edl_bit_rate*0.75
+    width: rx_symb_rate*0.75
     win: window.WIN_HAMMING
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [552, 656.0]
+    coordinate: [544, 656.0]
     rotation: 0
     state: enabled
-- name: network_socket_pdu_0
+- name: network_socket_pdu_0_0
   id: network_socket_pdu
   parameters:
     affinity: ''
     alias: ''
-    comment: ''
-    host: ''
+    comment: Received APRS beacon
+    host: beacon_host
     maxoutbuf: '0'
     minoutbuf: '0'
     mtu: '10000'
@@ -802,10 +708,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1864, 656.0]
+    coordinate: [1256, 704.0]
     rotation: 0
     state: enabled
-- name: network_socket_pdu_0_0_0_0
+- name: network_socket_pdu_0_0_0_0_0
   id: network_socket_pdu
   parameters:
     affinity: ''
@@ -822,7 +728,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [88, 1304.0]
+    coordinate: [48, 1336.0]
     rotation: 0
     state: enabled
 - name: note_0
@@ -861,10 +767,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [880, 512.0]
+    coordinate: [816, 480.0]
     rotation: 0
     state: enabled
-- name: pdu_pdu_set_0
+- name: pdu_pdu_set_0_0
   id: pdu_pdu_set
   parameters:
     affinity: ''
@@ -878,187 +784,60 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1864, 544.0]
+    coordinate: [1264, 616.0]
     rotation: 0
     state: enabled
-- name: qtgui_freq_sink_x_0
-  id: qtgui_freq_sink_x
+- name: pdu_pdu_set_2
+  id: pdu_pdu_set
   parameters:
     affinity: ''
     alias: ''
-    alpha1: '1.0'
-    alpha10: '1.0'
-    alpha2: '1.0'
-    alpha3: '1.0'
-    alpha4: '1.0'
-    alpha5: '1.0'
-    alpha6: '1.0'
-    alpha7: '1.0'
-    alpha8: '1.0'
-    alpha9: '1.0'
-    autoscale: 'False'
-    average: '1.0'
-    axislabels: 'True'
-    bw: tx_samp_rate
-    color1: '"blue"'
-    color10: '"dark blue"'
-    color2: '"red"'
-    color3: '"green"'
-    color4: '"black"'
-    color5: '"cyan"'
-    color6: '"magenta"'
-    color7: '"yellow"'
-    color8: '"dark red"'
-    color9: '"dark green"'
     comment: ''
-    ctrlpanel: 'False'
-    fc: tx_center_frequency
-    fftsize: '1024'
-    freqhalf: 'True'
-    grid: 'True'
-    gui_hint: ''
-    label: Relative Gain
-    label1: ''
-    label10: ''''''
-    label2: ''''''
-    label3: ''''''
-    label4: ''''''
-    label5: ''''''
-    label6: ''''''
-    label7: ''''''
-    label8: ''''''
-    label9: ''''''
-    legend: 'True'
+    k: pmt.intern("note")
     maxoutbuf: '0'
     minoutbuf: '0'
-    name: '""'
-    nconnections: '1'
-    norm_window: 'False'
-    showports: 'False'
-    tr_chan: '0'
-    tr_level: '0.0'
-    tr_mode: qtgui.TRIG_MODE_FREE
-    tr_tag: '""'
-    type: complex
-    units: dB
-    update_time: '0.10'
-    width1: '1'
-    width10: '1'
-    width2: '1'
-    width3: '1'
-    width4: '1'
-    width5: '1'
-    width6: '1'
-    width7: '1'
-    width8: '1'
-    width9: '1'
-    wintype: window.WIN_BLACKMAN_hARRIS
-    ymax: '10'
-    ymin: '-140'
+    v: pmt.intern("EDL to send")
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1584, 1560.0]
+    coordinate: [248, 1144.0]
     rotation: 0
-    state: disabled
-- name: qtgui_time_sink_x_0
-  id: qtgui_time_sink_x
+    state: true
+- name: pdu_pdu_to_stream_x_0
+  id: pdu_pdu_to_stream_x
   parameters:
     affinity: ''
     alias: ''
-    alpha1: '1.0'
-    alpha10: '1.0'
-    alpha2: '1.0'
-    alpha3: '1.0'
-    alpha4: '1.0'
-    alpha5: '1.0'
-    alpha6: '1.0'
-    alpha7: '1.0'
-    alpha8: '1.0'
-    alpha9: '1.0'
-    autoscale: 'False'
-    axislabels: 'True'
-    color1: blue
-    color10: dark blue
-    color2: red
-    color3: green
-    color4: black
-    color5: cyan
-    color6: magenta
-    color7: yellow
-    color8: dark red
-    color9: dark green
     comment: ''
-    ctrlpanel: 'False'
-    entags: 'True'
-    grid: 'False'
-    gui_hint: ''
-    label1: Signal 1
-    label10: Signal 10
-    label2: Signal 2
-    label3: Signal 3
-    label4: Signal 4
-    label5: Signal 5
-    label6: Signal 6
-    label7: Signal 7
-    label8: Signal 8
-    label9: Signal 9
-    legend: 'True'
-    marker1: '-1'
-    marker10: '-1'
-    marker2: '-1'
-    marker3: '-1'
-    marker4: '-1'
-    marker5: '-1'
-    marker6: '-1'
-    marker7: '-1'
-    marker8: '-1'
-    marker9: '-1'
-    name: '""'
-    nconnections: '1'
-    size: '5000'
-    srate: tx_samp_rate
-    stemplot: 'False'
-    style1: '1'
-    style10: '1'
-    style2: '1'
-    style3: '1'
-    style4: '1'
-    style5: '1'
-    style6: '1'
-    style7: '1'
-    style8: '1'
-    style9: '1'
-    tr_chan: '0'
-    tr_delay: '0'
-    tr_level: '0.0'
-    tr_mode: qtgui.TRIG_MODE_FREE
-    tr_slope: qtgui.TRIG_SLOPE_POS
-    tr_tag: '""'
-    type: complex
-    update_time: '0.10'
-    width1: '1'
-    width10: '1'
-    width2: '1'
-    width3: '1'
-    width4: '1'
-    width5: '1'
-    width6: '1'
-    width7: '1'
-    width8: '1'
-    width9: '1'
-    ylabel: Amplitude
-    ymax: '1'
-    ymin: '-1'
-    yunit: '""'
+    depth: '64'
+    early_behavior: pdu.EARLY_BURST_APPEND
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: byte
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1584, 1664.0]
+    coordinate: [736, 1360.0]
     rotation: 0
-    state: disabled
+    state: enabled
+- name: satnogs_frame_encoder_0
+  id: satnogs_frame_encoder
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    encoder_object: variable_ieee802_15_4_variable_encoder_0
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [480, 1360.0]
+    rotation: 0
+    state: enabled
 - name: tx_gain
   id: parameter
   parameters:
@@ -1073,7 +852,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1184, 984.0]
+    coordinate: [1144, 984.0]
     rotation: 0
     state: enabled
 - name: txband
@@ -1367,7 +1146,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1600, 1220.0]
+    coordinate: [1408, 1276.0]
     rotation: 0
     state: enabled
 - name: uhd_usrp_source_0
@@ -1806,6 +1585,24 @@ blocks:
     coordinate: [64, 644.0]
     rotation: 0
     state: enabled
+- name: uniclogs_frame_decoder_0
+  id: uniclogs_frame_decoder
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    decoder_object: uniclogs_ieee802_15_4_variant_decoder_0
+    itype: byte
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1008, 704.0]
+    rotation: 0
+    state: enabled
 - name: xmlrpc_server_0
   id: xmlrpc_server
   parameters:
@@ -1824,25 +1621,25 @@ blocks:
     state: true
 
 connections:
-- [analog_sig_source_x_0_1_0, '0', blocks_selector_0, '0']
-- [blocks_freqshift_cc_0, '0', blocks_tag_debug_0, '0']
-- [blocks_freqshift_cc_0, '0', qtgui_freq_sink_x_0, '0']
-- [blocks_freqshift_cc_0, '0', qtgui_time_sink_x_0, '0']
 - [blocks_freqshift_cc_0, '0', uhd_usrp_sink_0_0, '0']
 - [blocks_freqshift_cc_1, '0', blocks_selector_1, '0']
-- [blocks_freqshift_cc_1, '0', low_pass_filter_0_0_0, '0']
-- [blocks_selector_0, '0', blocks_freqshift_cc_0, '0']
+- [blocks_freqshift_cc_1, '0', low_pass_filter_0_0_1, '0']
 - [blocks_selector_1, '0', blocks_null_sink_1, '0']
 - [blocks_selector_1, '1', blocks_file_sink_0, '0']
-- [blocks_tagged_stream_multiply_length_0_0, '0', blocks_selector_0, '1']
-- [digital_correlate_access_code_tag_xx_0, '0', digital_protocol_parser_b_0, '0']
-- [digital_descrambler_bb_0_0, '0', blocks_deinterleave_0, '0']
-- [digital_gfsk_demod_0_0_0, '0', digital_correlate_access_code_tag_xx_0, '0']
-- [digital_gmsk_mod_0, '0', blocks_tagged_stream_multiply_length_0_0, '0']
-- [low_pass_filter_0_0_0, '0', digital_gfsk_demod_0_0_0, '0']
-- [pdu_pdu_set_0, pdus, blocks_message_debug_0, print]
+- [digital_crc_append_0, out, satnogs_frame_encoder_0, pdu]
+- [digital_gfsk_demod_0_0_1, '0', uniclogs_frame_decoder_0, '0']
+- [digital_gmsk_mod_0, '0', blocks_freqshift_cc_0, '0']
+- [low_pass_filter_0_0_1, '0', digital_gfsk_demod_0_0_1, '0']
+- [network_socket_pdu_0_0_0_0_0, pdus, digital_crc_append_0, in]
+- [network_socket_pdu_0_0_0_0_0, pdus, pdu_pdu_set_2, pdus]
+- [pdu_pdu_set_0_0, pdus, blocks_message_debug_0_0, print]
+- [pdu_pdu_set_2, pdus, blocks_message_debug_0_0_0_0_0_0_1_0, print]
+- [pdu_pdu_to_stream_x_0, '0', digital_gmsk_mod_0, '0']
+- [satnogs_frame_encoder_0, pdu, pdu_pdu_to_stream_x_0, pdus]
 - [uhd_usrp_sink_0_0, async_msgs, blocks_message_debug_1, print]
 - [uhd_usrp_source_0, '0', blocks_freqshift_cc_1, '0']
+- [uniclogs_frame_decoder_0, out, network_socket_pdu_0_0, pdus]
+- [uniclogs_frame_decoder_0, out, pdu_pdu_set_0_0, pdus]
 
 metadata:
   file_format: 1
