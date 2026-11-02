@@ -469,7 +469,7 @@ blocks:
     comment: 'Doppler Correction and LO offset
 
       Shifting 436.5 IQ to 436'
-    freq: -500k
+    freq: '-500000'
     maxoutbuf: '0'
     minoutbuf: '0'
     sample_rate: rx_samp_rate
