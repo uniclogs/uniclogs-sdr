@@ -795,7 +795,7 @@ blocks:
     k: pmt.intern("note")
     maxoutbuf: '0'
     minoutbuf: '0'
-    v: pmt.intern("EDL to send")
+    v: pmt.intern("EDL TO SEND")
   states:
     bus_sink: false
     bus_source: false
@@ -812,7 +812,7 @@ blocks:
     k: pmt.intern("note")
     maxoutbuf: '0'
     minoutbuf: '0'
-    v: pmt.intern("EDL to send")
+    v: pmt.intern("EDL RECIEVED")
   states:
     bus_sink: false
     bus_source: false
