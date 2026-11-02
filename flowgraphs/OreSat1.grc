@@ -733,7 +733,7 @@ blocks:
     affinity: ''
     alias: ''
     comment: EDL uplink
-    host: edlhost
+    host: ''
     maxoutbuf: '0'
     minoutbuf: '0'
     mtu: '10000'
