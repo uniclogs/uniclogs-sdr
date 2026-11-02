@@ -240,7 +240,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [616, 344.0]
+    coordinate: [888, 96.0]
     rotation: 0
     state: enabled
 - name: rx_samp_rate
@@ -441,7 +441,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [32, 320.0]
+    coordinate: [40, 384.0]
     rotation: 180
     state: enabled
 - name: blocks_freqshift_cc_0
@@ -469,7 +469,7 @@ blocks:
     comment: 'Doppler Correction and LO offset
 
       Shifting 436.5 IQ to 436'
-    freq: rx_tune_frequency - gpredict_rx_frequency
+    freq: f_offset
     maxoutbuf: '0'
     minoutbuf: '0'
     sample_rate: rx_samp_rate
@@ -492,7 +492,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1472, 600.0]
+    coordinate: [1488, 640.0]
     rotation: 0
     state: enabled
 - name: blocks_message_debug_0_0_0_0_0_0_1_0
@@ -507,7 +507,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [480, 1128.0]
+    coordinate: [448, 1128.0]
     rotation: 0
     state: enabled
 - name: blocks_message_debug_1
@@ -554,7 +554,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [96, 280.0]
+    coordinate: [88, 320.0]
     rotation: 180
     state: enabled
 - name: blocks_selector_1
@@ -593,7 +593,7 @@ blocks:
     label: config file
     short_id: c
     type: str
-    value: OreSat05.cfg
+    value: OreSat1.cfg
   states:
     bus_sink: false
     bus_source: false
@@ -633,19 +633,19 @@ blocks:
       \ / np.pi"
     freq_error: '0.0'
     gain_mu: '0.175'
-    log: 'True'
+    log: 'False'
     maxoutbuf: '0'
     minoutbuf: '0'
     mu: '0.5'
     omega_relative_limit: '0.0002'
     samples_per_symbol: '4'
     sensitivity: rx_samp_rate / (2*np.pi*rx_symb_rate)
-    verbose: 'True'
+    verbose: 'False'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [752, 636.0]
+    coordinate: [752, 656.0]
     rotation: 0
     state: enabled
 - name: digital_gmsk_mod_0
@@ -724,7 +724,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1256, 704.0]
+    coordinate: [1256, 776.0]
     rotation: 0
     state: enabled
 - name: network_socket_pdu_0_0_0_0_0
@@ -733,7 +733,7 @@ blocks:
     affinity: ''
     alias: ''
     comment: EDL uplink
-    host: ''
+    host: edlhost
     maxoutbuf: '0'
     minoutbuf: '0'
     mtu: '10000'
@@ -786,23 +786,6 @@ blocks:
     coordinate: [816, 480.0]
     rotation: 0
     state: enabled
-- name: pdu_pdu_set_0_0
-  id: pdu_pdu_set
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    k: pmt.intern("note")
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    v: pmt.intern("beacon")
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1264, 616.0]
-    rotation: 0
-    state: enabled
 - name: pdu_pdu_set_2
   id: pdu_pdu_set
   parameters:
@@ -818,6 +801,23 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [200, 1144.0]
+    rotation: 0
+    state: enabled
+- name: pdu_pdu_set_2_0
+  id: pdu_pdu_set
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    k: pmt.intern("note")
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    v: pmt.intern("EDL to send")
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1264, 656.0]
     rotation: 0
     state: enabled
 - name: pdu_pdu_to_stream_x_0
@@ -1648,13 +1648,13 @@ connections:
 - [low_pass_filter_0_0_1, '0', digital_gfsk_demod_0_0_1, '0']
 - [network_socket_pdu_0_0_0_0_0, pdus, digital_crc_append_0, in]
 - [network_socket_pdu_0_0_0_0_0, pdus, pdu_pdu_set_2, pdus]
-- [pdu_pdu_set_0_0, pdus, blocks_message_debug_0_0, print]
 - [pdu_pdu_set_2, pdus, blocks_message_debug_0_0_0_0_0_0_1_0, print]
+- [pdu_pdu_set_2_0, pdus, blocks_message_debug_0_0, print]
 - [pdu_pdu_to_stream_x_0, '0', digital_gmsk_mod_0, '0']
 - [uhd_usrp_sink_0_0, async_msgs, blocks_message_debug_1, print]
 - [uhd_usrp_source_0, '0', blocks_freqshift_cc_1, '0']
 - [uniclogs_frame_decoder_0, out, network_socket_pdu_0_0, pdus]
-- [uniclogs_frame_decoder_0, out, pdu_pdu_set_0_0, pdus]
+- [uniclogs_frame_decoder_0, out, pdu_pdu_set_2_0, pdus]
 - [uniclogs_frame_encoder_0, pdu, blocks_message_debug_1_0, print]
 - [uniclogs_frame_encoder_0, pdu, pdu_pdu_to_stream_x_0, pdus]
 

@@ -1,13 +1,16 @@
 GRCC = grcc
 
 .PHONY: all
-all: flowgraph05
+all: flowgraph1
 
-.PHONY: flowgraph
+.PHONY: flowgraph0
 flowgraph: hier OreSat0.py OreSat0.cfg
 
 .PHONY: flowgraph05
 flowgraph05: hier OreSat05.py OreSat05.cfg
+
+.PHONY: flowgraph1
+flowgraph1: OreSat1.py OreSat1.cfg
 
 .PHONY: hier
 hier: hier/*.grc
@@ -26,8 +29,8 @@ OreSat0.py: OreSat0.grc
 
 .PHONY: clean
 clean:
-	rm -f OreSat05.py
+	rm -f OreSat0.py OreSat05.py OreSat1.py
 
 .PHONY: distclean
 distclean: clean
-	rm -f OreSat05.cfg
+	rm -f OreSat0.cfg OreSat05.cfg OreSat1.cfg
