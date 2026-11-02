@@ -157,7 +157,7 @@ blocks:
   parameters:
     alias: ''
     comment: ''
-    frame_len: '53'
+    frame_len: '240'
     preamble: '0x55'
     preamble_len: '8'
     sync_word: '[0x72, 0x09]'
