@@ -1,11 +1,13 @@
 [main]
 telemetry_host=localhost
 command_host=localhost
-device_serial=
+device_serial=3490D12
 
 [rx]
 target_frequency=436.625e6
 sample_rate=2e6
+modulation_order=2
+
 # gain
 # iq_filename
 
@@ -17,12 +19,15 @@ bit_rate=50000
 
 [tx_l]
 bit_rate=50000
+modulation_order=2
 center_frequency=1264.375e6
 
 [tx_l_fast]
 bit_rate=50000
+modulation_order=2
 center_frequency=1264.375e6
 
 [tx_uhf]
 bit_rate=50000
+modulation_order=2
 center_frequency=436.625e6
